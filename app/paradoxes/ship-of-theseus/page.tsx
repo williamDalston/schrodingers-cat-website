@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { ShipOfTheseusInteractive } from '@/components/paradoxes/ShipOfTheseusInteractive'
 import { 
   ArrowLeftIcon, 
   LightBulbIcon, 
@@ -51,16 +54,9 @@ export default function ShipOfTheseusPage() {
           </p>
         </div>
 
-        {/* Main Image Placeholder */}
-        <div className="mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <div className="h-96 bg-gradient-to-br from-purple-500 via-primary-500 to-accent-500 flex items-center justify-center">
-            <div className="text-center p-8">
-              <CubeIcon className="h-32 w-32 text-white mx-auto mb-4 opacity-80" />
-              <p className="text-white text-lg font-semibold">
-                [Illustration: Ship Being Gradually Replaced]
-              </p>
-            </div>
-          </div>
+        {/* Interactive Demonstration */}
+        <div className="mb-12">
+          <ShipOfTheseusInteractive />
         </div>
 
         {/* The Paradox Section */}

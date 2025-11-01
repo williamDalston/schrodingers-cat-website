@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { OlbersParadoxInteractive } from '@/components/paradoxes/OlbersParadoxInteractive'
 import { 
   ArrowLeftIcon, 
   LightBulbIcon, 
@@ -51,16 +54,9 @@ export default function OlbersParadoxPage() {
           </p>
         </div>
 
-        {/* Main Image Placeholder */}
-        <div className="mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <div className="h-96 bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900 flex items-center justify-center">
-            <div className="text-center p-8">
-              <MoonIcon className="h-32 w-32 text-white mx-auto mb-4 opacity-80" />
-              <p className="text-white text-lg font-semibold">
-                [Illustration: Night Sky with Stars]
-              </p>
-            </div>
-          </div>
+        {/* Interactive Demonstration */}
+        <div className="mb-12">
+          <OlbersParadoxInteractive />
         </div>
 
         {/* The Paradox Section */}

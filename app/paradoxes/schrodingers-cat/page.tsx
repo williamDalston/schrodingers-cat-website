@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import ShareButtons from '@/components/ShareButtons'
+import { SchrodingersCatInteractive } from '@/components/paradoxes/SchrodingersCatInteractive'
 import { 
   ArrowLeftIcon, 
   LightBulbIcon, 
@@ -122,16 +125,9 @@ export default function SchrodingersCatPage() {
           </div>
         </header>
 
-        {/* Main Image Placeholder */}
-        <div className="mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <div className="h-96 bg-gradient-to-br from-primary-500 via-accent-500 to-purple-500 flex items-center justify-center">
-            <div className="text-center p-8">
-              <BeakerIcon className="h-32 w-32 text-white mx-auto mb-4 opacity-80" aria-hidden="true" />
-              <p className="text-white text-lg font-semibold">
-                [Illustration: Cat in Quantum Superposition Box]
-              </p>
-            </div>
-          </div>
+        {/* Interactive Demonstration */}
+        <div className="mb-12">
+          <SchrodingersCatInteractive />
         </div>
 
         {/* The Experiment Section */}

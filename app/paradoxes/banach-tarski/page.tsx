@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { BanachTarskiInteractive } from '@/components/paradoxes/BanachTarskiInteractive'
 import { 
   ArrowLeftIcon, 
   LightBulbIcon, 
@@ -51,16 +54,9 @@ export default function BanachTarskiParadoxPage() {
           </p>
         </div>
 
-        {/* Main Image Placeholder */}
-        <div className="mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <div className="h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
-            <div className="text-center p-8">
-              <CubeIcon className="h-32 w-32 text-white mx-auto mb-4 opacity-80" />
-              <p className="text-white text-lg font-semibold">
-                [Illustration: Sphere Being Duplicated Mathematically]
-              </p>
-            </div>
-          </div>
+        {/* Interactive Demonstration */}
+        <div className="mb-12">
+          <BanachTarskiInteractive />
         </div>
 
         {/* The Paradox Section */}

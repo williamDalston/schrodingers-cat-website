@@ -18,7 +18,7 @@ export default function Navigation() {
     { href: '/curiosity', label: 'Daily Curiosity' },
     { href: '/tools', label: 'Interactive Tools' },
     { href: '/puzzles', label: 'Weekly Puzzles' },
-    { href: '/shop', label: 'Shop' },
+    // { href: '/shop', label: 'Shop' }, // Temporarily hidden
   ]
 
   return (

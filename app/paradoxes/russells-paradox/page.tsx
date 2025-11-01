@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { RussellsParadoxInteractive } from '@/components/paradoxes/RussellsParadoxInteractive'
 import { 
   ArrowLeftIcon, 
   LightBulbIcon, 
@@ -51,16 +54,9 @@ export default function RussellsParadoxPage() {
           </p>
         </div>
 
-        {/* Main Image Placeholder */}
-        <div className="mb-12 rounded-2xl overflow-hidden shadow-xl">
-          <div className="h-96 bg-gradient-to-br from-purple-500 via-accent-500 to-primary-500 flex items-center justify-center">
-            <div className="text-center p-8">
-              <CogIcon className="h-32 w-32 text-white mx-auto mb-4 opacity-80" />
-              <p className="text-white text-lg font-semibold">
-                [Illustration: Set Theory Venn Diagrams]
-              </p>
-            </div>
-          </div>
+        {/* Interactive Demonstration */}
+        <div className="mb-12">
+          <RussellsParadoxInteractive />
         </div>
 
         {/* The Paradox Section */}
