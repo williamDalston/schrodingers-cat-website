@@ -97,7 +97,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div id="mobile-navigation" className="md:hidden py-4 space-y-2 border-t border-white/20" role="navigation" aria-label="Mobile navigation">
+          <div id="mobile-navigation" className="md:hidden py-4 space-y-2 border-t border-gray-200/50" role="navigation" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
