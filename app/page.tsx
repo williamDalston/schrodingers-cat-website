@@ -31,7 +31,8 @@ export default function Home() {
     url: 'https://yourdomain.com', // TODO: Update with actual domain
     logo: 'https://yourdomain.com/logo.png', // TODO: Add actual logo
     sameAs: [
-      // TODO: Add social media links
+      'https://www.instagram.com/schrodingerscat_restaurant',
+      'https://www.facebook.com/SchrodingersCatTbilisi/',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
