@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import Analytics from '@/components/Analytics'
 import { Toaster } from 'react-hot-toast'
 import { CartProvider } from '@/lib/cart-context'
+import { ThemeProvider } from '@/lib/theme-context'
 
 export const metadata: Metadata = {
   title: 'Schrödinger\'s Cat - Science Exploration & Curiosity',
@@ -78,13 +79,15 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <CartProvider>
-          <Navigation />
-          <main id="main-content" className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-        </CartProvider>
+        <ThemeProvider>
+          <CartProvider>
+            <Navigation />
+            <main id="main-content" className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+          </CartProvider>
+        </ThemeProvider>
         <Toaster
           position="bottom-right"
           toastOptions={{

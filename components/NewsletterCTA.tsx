@@ -54,13 +54,13 @@ export default function NewsletterCTA() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <EnvelopeIcon className="h-16 w-16 text-white mx-auto mb-6 icon-3d quantum-wave" aria-hidden="true" />
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-3d">
-            Daily Curiosity, Delivered
+          <EnvelopeIcon className="h-16 w-16 text-white mx-auto mb-6" aria-hidden="true" />
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Stay Updated on Research
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get your daily dose of fascinating science, thought experiments, and mind-bending paradoxes. 
-            Free. No spam. Just pure curiosity.
+            Receive weekly insights on quantum consciousness theories, new research, and philosophical explorations. 
+            Scholarly content delivered to your inbox.
           </p>
 
           <form

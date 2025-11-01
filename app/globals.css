@@ -100,12 +100,12 @@ body {
 
   /* Design system: Card styles */
   .card {
-    @apply bg-white rounded-2xl border border-gray-200 shadow-sm;
+    @apply bg-white rounded-2xl border border-gray-300 shadow-md;
     @apply transition-all duration-300;
   }
 
   .card-hover {
-    @apply card hover:shadow-xl hover:border-primary-200 hover:-translate-y-1;
+    @apply card hover:shadow-2xl hover:border-gray-400 hover:-translate-y-1;
   }
 
   .card-interactive {
@@ -149,19 +149,20 @@ body {
 
   /* Design system: Buttons */
   .btn-primary {
-    @apply px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl;
+    @apply px-6 py-3 bg-primary-600 text-white font-bold rounded-xl;
     @apply hover:bg-primary-700 active:bg-primary-800;
     @apply transition-all duration-200;
     @apply focus-ring;
-    @apply shadow-md hover:shadow-lg;
+    @apply shadow-lg hover:shadow-2xl;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl;
-    @apply border-2 border-gray-200;
-    @apply hover:bg-gray-50 hover:border-primary-300;
+    @apply px-6 py-3 bg-white text-gray-900 font-bold rounded-xl;
+    @apply border-2 border-gray-300;
+    @apply hover:bg-gray-50 hover:border-gray-400;
     @apply transition-all duration-200;
     @apply focus-ring;
+    @apply shadow-md hover:shadow-lg;
   }
 
   /* Design system: Badge styles */
@@ -288,23 +289,23 @@ body {
   }
   
   .depth-shadow-1 {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 
-                0 1px 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 
+                0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .depth-shadow-2 {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 
-                0 2px 4px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 
+                0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
   .depth-shadow-3 {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 
-                0 4px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 
+                0 6px 12px rgba(0, 0, 0, 0.2);
   }
   
   .text-3d {
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8),
-                 0 2px 2px rgba(0, 0, 0, 0.05);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15),
+                 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .quantum-glow {

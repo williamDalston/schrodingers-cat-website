@@ -56,16 +56,16 @@ export default function Layer1Section() {
             viewport={{ once: true }}
             className="inline-block px-4 py-2 glass rounded-full text-sm font-semibold text-primary-700 mb-6 quantum-layer depth-shadow-1"
           >
-            ✨ Free Forever
+            Research & Exploration
           </motion.span>
           <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-            <span className="block text-3d">Explore Without</span>
+            <span className="block text-3d">Understanding Fundamental</span>
             <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent text-3d quantum-wave">
-              Limits
+              Questions
             </span>
           </h2>
           <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Everything here is completely free. No signup, no paywall, just pure scientific curiosity.
+            Scholarly examination of paradoxes, consciousness theories, and thought experiments across physics, philosophy, and neuroscience.
           </p>
         </motion.div>
 

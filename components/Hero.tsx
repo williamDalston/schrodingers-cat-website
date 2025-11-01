@@ -3,7 +3,7 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRightIcon, SparklesIcon, GiftIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, SparklesIcon } from '@heroicons/react/24/outline'
 
 // Seeded random function for stable particle positions
 function seededRandom(seed: number) {
@@ -166,6 +166,27 @@ export default function Hero() {
               <span className="absolute inset-0 bg-gradient-to-r from-primary-50/0 via-primary-50/50 to-primary-50/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
               <span className="relative z-10">Daily Curiosity</span>
             </Link>
+          </motion.div>
+
+          {/* Interactive Quantum Wave Visualization */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="mt-16 max-w-4xl mx-auto"
+          >
+            <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3 text-center">
+                Interactive: Wave-Particle Duality
+              </h3>
+              <p className="text-sm text-gray-600 mb-4 text-center max-w-2xl mx-auto">
+                Move your cursor over the visualization to observe how quantum particles respond to observation, 
+                demonstrating the fundamental principle of wave-particle duality in quantum mechanics.
+              </p>
+              <div className="relative">
+                <QuantumWaveParticle />
+              </div>
+            </div>
           </motion.div>
 
 

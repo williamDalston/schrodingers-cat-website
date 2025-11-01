@@ -56,16 +56,16 @@ export default function Layer2Section() {
             viewport={{ once: true }}
             className="inline-block px-4 py-2 glass rounded-full text-sm font-semibold text-orange-700 mb-6"
           >
-            🔄 Build Habits
+            Deep Engagement
           </motion.span>
           <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-            <span className="block">Retention</span>
+            <span className="block">Ongoing</span>
             <span className="bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
-              Mechanics
+              Discovery
             </span>
           </h2>
           <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Build habits that bring you back. Weekly content, progress tracking, and community—all designed to make exploration a daily ritual.
+            Weekly puzzles, progress tracking, and community discussions to deepen your understanding of complex topics.
           </p>
         </motion.div>
 

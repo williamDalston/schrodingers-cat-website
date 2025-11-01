@@ -26,13 +26,28 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   // Load cart from localStorage on mount
   useEffect(() => {
-    setCart(getCart())
+    try {
+      setCart(getCart())
+    } catch (error) {
+      console.error('Error loading cart on mount:', error)
+      // Fallback to empty cart if loading fails
+      setCart({ items: [], total: 0, itemCount: 0 })
+    }
   }, [])
 
   // Listen for storage changes (e.g., from other tabs)
   useEffect(() => {
-    const handleStorageChange = () => {
-      setCart(getCart())
+    if (typeof window === 'undefined') return
+
+    const handleStorageChange = (e: StorageEvent) => {
+      // Only respond to cart storage changes
+      if (e.key === 'schrodingers_cat_cart') {
+        try {
+          setCart(getCart())
+        } catch (error) {
+          console.error('Error loading cart from storage event:', error)
+        }
+      }
     }
 
     window.addEventListener('storage', handleStorageChange)

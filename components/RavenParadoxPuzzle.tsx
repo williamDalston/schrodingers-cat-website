@@ -106,13 +106,13 @@ export default function RavenParadoxPuzzle() {
   return (
     <div className="w-full">
       {/* Instructions */}
-      <div className="mb-6 p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border-2 border-purple-200">
+      <div className="mb-6 p-4 bg-gradient-to-br from-primary-50 to-accent-50 rounded-lg border-2 border-primary-200">
         <div className="flex items-start justify-between mb-3">
           <h4 className="font-bold text-gray-900 text-lg">The Paradox:</h4>
           {!completed && (
             <button
               onClick={() => setShowHint(!showHint)}
-              className="text-xs text-purple-600 hover:text-purple-700 font-medium underline"
+              className="text-xs text-primary-600 hover:text-primary-700 font-medium underline"
             >
               {showHint ? 'Hide Hint' : 'Need a Hint?'}
             </button>
@@ -140,10 +140,10 @@ export default function RavenParadoxPuzzle() {
       </div>
 
       {/* Hypothesis Display */}
-      <div className="mb-6 p-4 bg-white rounded-lg border-2 border-purple-300">
+      <div className="mb-6 p-4 bg-white rounded-lg border-2 border-primary-300">
         <div className="text-center">
           <div className="text-lg font-bold text-gray-900 mb-2">Hypothesis:</div>
-          <div className="text-2xl font-bold text-purple-700">{hypothesis}</div>
+          <div className="text-2xl font-bold text-primary-700">{hypothesis}</div>
           <div className="mt-2 text-sm text-gray-600">Equivalent to: &quot;{equivalentHypothesis}&quot;</div>
         </div>
       </div>
@@ -173,8 +173,8 @@ export default function RavenParadoxPuzzle() {
                     : showAsWeak
                     ? 'bg-yellow-100 border-yellow-500'
                     : isSelected
-                    ? 'bg-purple-100 border-purple-400'
-                    : 'bg-gray-50 border-gray-200 hover:border-purple-300'
+                    ? 'bg-primary-100 border-primary-400'
+                    : 'bg-gray-50 border-gray-200 hover:border-primary-300'
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
