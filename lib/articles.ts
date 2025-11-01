@@ -89,7 +89,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'primer',
     length: 'short',
     wordCount: 1500,
-    status: 'planned',
+    status: 'published',
     angle: 'Thought experiment comic: Inside/outside box views clash.',
     transcriptHooks: [
       '"Friend sees definite outcome; Wigner sees superposition."'
@@ -110,7 +110,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'theory',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'Pro/con debate; McQueen\'s IIT upgrade for tests.',
     transcriptHooks: [
       '"Superpositions of consciousness are unstable... bites back and causes collapse."'
@@ -126,7 +126,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'theory',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'Pros (solves measurement), cons (probability/Born rule). Quantum immortality sidebar.',
     transcriptHooks: [
       '"Branching into observer seeing A and seeing B... across many parallel universes."',
@@ -144,7 +144,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'theory',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'Orch-OR explained; mass threshold challenge.',
     transcriptHooks: [
       '"Collapse gives rise to consciousness... entanglement across neurons."'
@@ -161,7 +161,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'theory',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'Degrees of consciousness; quantum superposition tests.',
     transcriptHooks: [
       '"Put system in superposition of two Φ structures → collapse."'
@@ -177,7 +177,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'theory',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'Albantoni\'s work; compares neuron vs. microtubule Φ max.',
     transcriptHooks: [
       '"Replace classical probabilities with density matrices."'
@@ -197,7 +197,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'critique',
     length: 'long',
     wordCount: 3500,
-    status: 'planned',
+    status: 'published',
     angle: 'Born rule crisis; self-locating uncertainty fix?',
     transcriptHooks: [
       '"75% A / 25% B: Same branching? Amplitudes lose meaning."',
@@ -214,7 +214,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'critique',
     length: 'long',
     wordCount: 3500,
-    status: 'planned',
+    status: 'published',
     angle: 'Hartmut Nevanen paper; basis problem/decoherence.',
     transcriptHooks: [
       '"Moment of superposition formation... not collapse."'
@@ -230,7 +230,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'critique',
     length: 'long',
     wordCount: 3500,
-    status: 'planned',
+    status: 'published',
     angle: 'Idealism vs. no-cloning; McQueen\'s cloning objection.',
     transcriptHooks: [
       '"Experiences as pure quantum states... but how do YOU remember yours?"'
@@ -250,7 +250,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'experiment',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'IIT superposition collapse; quantum computer breakdown.',
     transcriptHooks: [
       '"Superposition of Φ structures → deviates from Schrödinger equation."'
@@ -267,7 +267,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'experiment',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'Mouse moms → human trials; spin vs. mass.',
     transcriptHooks: [
       '"Quantum differences making macroscopic phenomenal difference."'
@@ -283,7 +283,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'experiment',
     length: 'medium',
     wordCount: 2500,
-    status: 'planned',
+    status: 'published',
     angle: 'Tegmark\'s gun test; decrepit survival.',
     transcriptHooks: [
       '"Always a world where you survive."'
@@ -303,7 +303,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'opinion',
     length: 'short',
     wordCount: 2000,
-    status: 'planned',
+    status: 'published',
     angle: '1. MWI, 2. IIT-Collapse, etc. McQueen poll.',
     transcriptHooks: [
       '"Everyone bites a bullet."'
@@ -320,7 +320,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'opinion',
     length: 'short',
     wordCount: 2000,
-    status: 'planned',
+    status: 'published',
     angle: 'No "observer effect = mind over matter."',
     transcriptHooks: [
       '"Device alone enters superposition."'
@@ -336,7 +336,7 @@ export const quantumConsciousnessArticles: Article[] = [
     category: 'opinion',
     length: 'short',
     wordCount: 2000,
-    status: 'planned',
+    status: 'published',
     angle: 'Workshops, debates (Koch vs. Faggin?). Asencia/Tiny Blue Dot tie-in.',
     transcriptHooks: [],
     whyItWorks: 'Timely (Nov 2025); newsletter signup.',
@@ -353,11 +353,11 @@ export const quantumConsciousnessArticles: Article[] = [
  */
 export const seriesIntroduction: Article = {
   id: 'qc-series-000',
-  title: 'Exclusive: Kelvin McQueen\'s Quantum Consciousness Masterclass',
+  title: 'Quantum Minds: The Consciousness-Mechanics Connection',
   category: 'primer',
   length: 'medium',
   wordCount: 3000,
-  status: 'planned',
+  status: 'published',
   angle: 'Full breakdown of the interview transcript with key quotes and insights. Perfect series introduction.',
   transcriptHooks: [
     'Complete transcript breakdown with all major points',

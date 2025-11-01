@@ -317,27 +317,32 @@ export default function CuriosityPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-accent-50 to-primary-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div className="min-h-screen gradient-mesh">
+      <div className="container-spacing section-spacing max-w-4xl">
         <Link
           href="/"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
           Back to Home
         </Link>
 
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex p-5 bg-gradient-to-br from-accent-500 to-accent-600 rounded-2xl mb-6 shadow-lg">
+        <header className="text-center mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex p-5 gradient-accent rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <LightBulbIcon className="h-12 w-12 text-white" aria-hidden="true" />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
             Daily Curiosity
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
             Your daily dose of fascinating science, thought experiments, and awe-inspiring discoveries.
           </p>
-        </div>
+        </header>
 
         <div className="space-y-8">
           {curiosityEntries.map((entry, index) => (
@@ -346,7 +351,7 @@ export default function CuriosityPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl hover:border-primary-200 transition-all duration-300"
+              className="card-hover overflow-hidden"
             >
               <div className="bg-gradient-to-r from-primary-600 to-accent-600 p-8 text-white">
                 <div className="flex items-center justify-between mb-4">
@@ -369,31 +374,31 @@ export default function CuriosityPage() {
                     </span>
                   </div>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold">{entry.title}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{entry.title}</h2>
               </div>
 
               <div className="p-8 md:p-10">
-                <p className="text-2xl font-semibold text-gray-900 mb-8 leading-relaxed">
+                <p className="text-2xl font-semibold text-gray-900 mb-8 leading-relaxed tracking-tight">
                   {entry.content.intro}
                 </p>
 
-                <div className="prose prose-lg max-w-none space-y-6 text-gray-700">
+                <div className="prose prose-lg max-w-none space-y-8 text-gray-700">
                   <section>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">The Explanation</h3>
-                    <p className="leading-relaxed">{entry.content.explanation}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">The Explanation</h3>
+                    <p className="leading-relaxed text-lg">{entry.content.explanation}</p>
                   </section>
 
                   <section>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">A Real Example</h3>
-                    <p className="leading-relaxed">{entry.content.example}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">A Real Example</h3>
+                    <p className="leading-relaxed text-lg">{entry.content.example}</p>
                   </section>
 
                   <section>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Why This Matters</h3>
-                    <p className="leading-relaxed">{entry.content.insight}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">Why This Matters</h3>
+                    <p className="leading-relaxed text-lg">{entry.content.insight}</p>
                   </section>
 
-                  <div className="bg-gradient-to-br from-primary-50 to-accent-50 border-l-4 border-primary-600 p-6 rounded-r-lg my-8">
+                  <div className="bg-gradient-to-br from-primary-50 to-accent-50 border-l-4 border-primary-600 p-6 rounded-r-lg my-8 shadow-sm">
                     <p className="text-gray-800 italic text-lg font-medium leading-relaxed">
                       &quot;{entry.content.takeaway}&quot;
                     </p>
@@ -407,15 +412,15 @@ export default function CuriosityPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-2xl border border-gray-200 p-8 text-center"
+            className="card p-8 text-center"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Want More?</h2>
-            <p className="text-lg text-gray-600 mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Want More?</h2>
+            <p className="text-lg text-gray-600 mb-6 font-light">
               Subscribe to get a fascinating curiosity delivered to your inbox every single day. Free forever.
             </p>
             <Link
               href="/newsletter"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+              className="btn-primary inline-flex items-center focus-ring"
             >
               Subscribe to Newsletter
             </Link>

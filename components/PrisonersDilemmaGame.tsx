@@ -144,21 +144,23 @@ export default function PrisonersDilemmaGame() {
       {/* Strategy Selector */}
       <div className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
         <label className="block text-sm font-semibold text-gray-700 mb-2">
-          Opponent Strategy:
+          Choose Opponent Strategy:
         </label>
         <div className="flex flex-wrap gap-2">
           {(['random', 'always-defect', 'tit-for-tat'] as const).map((strategy) => (
-            <button
+            <motion.button
               key={strategy}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => changeStrategy(strategy)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 opponentStrategy === strategy
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                  ? 'bg-primary-600 text-white shadow-md'
+                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-primary-300'
               }`}
             >
               {strategy === 'always-defect' ? 'Always Defect' : strategy === 'tit-for-tat' ? 'Tit-for-Tat' : 'Random'}
-            </button>
+            </motion.button>
           ))}
         </div>
         <p className="mt-2 text-xs text-gray-600">{getStrategyDescription(opponentStrategy)}</p>
@@ -255,17 +257,38 @@ export default function PrisonersDilemmaGame() {
       {gameHistory.length > 0 && (
         <div className="mb-6">
           <h4 className="font-semibold text-gray-900 mb-3">Game History:</h4>
-          <div className="space-y-2 max-h-48 overflow-y-auto">
+          <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
             {gameHistory.map((result, index) => (
-              <div key={index} className="p-3 bg-gray-50 rounded-lg text-sm">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className={`p-3 rounded-lg text-sm border-2 ${
+                  result.playerScore > result.opponentScore
+                    ? 'bg-green-50 border-green-200'
+                    : result.playerScore < result.opponentScore
+                    ? 'bg-red-50 border-red-200'
+                    : 'bg-gray-50 border-gray-200'
+                }`}
+              >
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Round {result.round}:</span>
-                  <span className="font-medium">
-                    You: {result.playerDecision === 'cooperate' ? '🤝' : '💔'} +{result.playerScore} | 
-                    Opponent: {result.opponentDecision === 'cooperate' ? '🤝' : '💔'} +{result.opponentScore}
-                  </span>
+                  <span className="font-semibold text-gray-700">Round {result.round}:</span>
+                  <div className="flex items-center gap-3 text-xs">
+                    <span className={`font-medium px-2 py-1 rounded ${
+                      result.playerDecision === 'cooperate' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                    }`}>
+                      You: {result.playerDecision === 'cooperate' ? '🤝' : '💔'} +{result.playerScore}
+                    </span>
+                    <span className="text-gray-400">vs</span>
+                    <span className={`font-medium px-2 py-1 rounded ${
+                      result.opponentDecision === 'cooperate' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                    }`}>
+                      Them: {result.opponentDecision === 'cooperate' ? '🤝' : '💔'} +{result.opponentScore}
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -273,12 +296,27 @@ export default function PrisonersDilemmaGame() {
 
       {/* Reset Button */}
       {(gameOver || gameHistory.length > 0) && (
-        <button
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={resetGame}
           className="w-full px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
         >
           Reset Game
-        </button>
+        </motion.button>
+      )}
+
+      {/* Educational Note */}
+      {gameHistory.length >= 3 && !gameOver && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200"
+        >
+          <p className="text-sm text-blue-900">
+            <strong>💡 Game Theory Tip:</strong> In repeated games, cooperation often emerges naturally. Notice how your strategy evolves as you learn about your opponent!
+          </p>
+        </motion.div>
       )}
     </div>
   )

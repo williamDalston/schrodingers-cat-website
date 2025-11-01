@@ -38,15 +38,47 @@ export default function CheckoutPage() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
     setError('')
 
-    // Validate form
+    // Validate required fields
     if (!formData.email || !formData.firstName || !formData.lastName) {
-      setError('Please fill in all required fields.')
+      setError('Please fill in all required fields (marked with *).')
       setStatus('error')
+      return
+    }
+
+    // Validate email format
+    if (!validateEmail(formData.email)) {
+      setError('Please enter a valid email address.')
+      setStatus('error')
+      return
+    }
+
+    // Check if cart has physical products (need shipping address)
+    const hasPhysicalProducts = cart.items.some(item => item.product.category !== 'digital')
+    
+    // Validate shipping address if physical products
+    if (hasPhysicalProducts) {
+      if (!formData.address || !formData.city || !formData.zipCode || !formData.country) {
+        setError('Please provide complete shipping information for physical products.')
+        setStatus('error')
+        return
+      }
+    }
+
+    // Validate cart still has items
+    if (cart.items.length === 0) {
+      setError('Your cart is empty. Please add items before checking out.')
+      setStatus('error')
+      router.push('/shop')
       return
     }
 
@@ -62,20 +94,38 @@ export default function CheckoutPage() {
       const order = {
         id: orderId,
         customerInfo: formData,
-        items: cart.items,
+        items: cart.items.map(item => ({
+          product: {
+            id: item.product.id,
+            slug: item.product.slug,
+            title: item.product.title,
+            price: item.product.price,
+            currency: item.product.currency,
+            category: item.product.category,
+            digitalFile: item.product.digitalFile,
+          },
+          quantity: item.quantity,
+        })),
         total: cart.total,
         currency: 'USD',
-        status: 'completed',
+        status: 'completed' as const,
         createdAt: new Date().toISOString(),
       }
 
-      localStorage.setItem('last_order', JSON.stringify(order))
+      try {
+        localStorage.setItem('last_order', JSON.stringify(order))
+      } catch (storageError) {
+        console.error('Error saving order to localStorage:', storageError)
+        setError('Error saving order. Please try again.')
+        setStatus('error')
+        return
+      }
 
       // Clear cart
       clearCart()
 
       // Redirect to confirmation
-      router.push(`/checkout/confirmation?orderId=${orderId}`)
+      router.push(`/checkout/confirmation?orderId=${encodeURIComponent(orderId)}`)
     } catch (err) {
       setError('Something went wrong. Please try again.')
       setStatus('error')
@@ -91,23 +141,23 @@ export default function CheckoutPage() {
   const physicalProducts = cart.items.filter(item => item.product.category !== 'digital')
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-accent-50/20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <Link
           href="/cart"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8"
+          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
         >
-          <ArrowLeftIcon className="h-5 w-5 mr-2" />
+          <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
           Back to Cart
         </Link>
 
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Checkout</h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">Checkout</h1>
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Customer Information */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-xl border border-gray-200 p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Customer Information</h2>
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Customer Information</h2>
 
               <div className="space-y-4">
                 <div>
@@ -121,7 +171,7 @@ export default function CheckoutPage() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="input focus-ring"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -138,7 +188,7 @@ export default function CheckoutPage() {
                       required
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      className="input focus-ring"
                     />
                   </div>
                   <div>
@@ -152,24 +202,24 @@ export default function CheckoutPage() {
                       required
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      className="input focus-ring"
                     />
                   </div>
                 </div>
 
-                {physicalProducts.length > 0 && (
-                  <>
-                    <div>
-                      <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
-                        Country
-                      </label>
-                      <select
-                        id="country"
-                        name="country"
-                        value={formData.country}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      >
+                 {physicalProducts.length > 0 && (
+                   <>
+                     <div>
+                       <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+                         Country
+                       </label>
+                       <select
+                         id="country"
+                         name="country"
+                         value={formData.country}
+                         onChange={handleInputChange}
+                         className="input focus-ring"
+                       >
                         <option value="">Select a country</option>
                         <option value="US">United States</option>
                         <option value="GB">United Kingdom</option>
@@ -189,49 +239,49 @@ export default function CheckoutPage() {
                         type="text"
                         id="address"
                         name="address"
-                        value={formData.address}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        placeholder="123 Main St"
-                      />
-                    </div>
+                         value={formData.address}
+                         onChange={handleInputChange}
+                         className="input focus-ring"
+                         placeholder="123 Main St"
+                       />
+                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div className="sm:col-span-2">
-                        <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                          City
-                        </label>
-                        <input
-                          type="text"
-                          id="city"
-                          name="city"
-                          value={formData.city}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-2">
-                          ZIP / Postal Code
-                        </label>
-                        <input
-                          type="text"
-                          id="zipCode"
-                          name="zipCode"
-                          value={formData.zipCode}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        />
-                      </div>
-                    </div>
+                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                       <div className="sm:col-span-2">
+                         <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+                           City
+                         </label>
+                         <input
+                           type="text"
+                           id="city"
+                           name="city"
+                           value={formData.city}
+                           onChange={handleInputChange}
+                           className="input focus-ring"
+                         />
+                       </div>
+                       <div>
+                         <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-2">
+                           ZIP / Postal Code
+                         </label>
+                         <input
+                           type="text"
+                           id="zipCode"
+                           name="zipCode"
+                           value={formData.zipCode}
+                           onChange={handleInputChange}
+                           className="input focus-ring"
+                         />
+                       </div>
+                     </div>
                   </>
                 )}
               </div>
             </div>
 
             {/* Payment Method */}
-            <div className="bg-white rounded-xl border border-gray-200 p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Payment Method</h2>
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Payment Method</h2>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-blue-800 text-sm">
                   <strong>Note:</strong> Payment processing integration is in progress. For now, this is a demo checkout flow.
@@ -249,8 +299,8 @@ export default function CheckoutPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl border border-gray-200 p-6 sticky top-24">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8 lg:sticky lg:top-24">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Order Summary</h2>
 
               <div className="space-y-4 mb-6">
                 {cart.items.map((item) => (
@@ -286,13 +336,13 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className={`w-full mt-6 px-6 py-4 bg-primary-600 text-white font-bold text-lg rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
-                  status === 'loading' ? 'cursor-wait' : ''
-                }`}
-              >
+               <button
+                 type="submit"
+                 disabled={status === 'loading'}
+                 className={`w-full mt-6 px-6 py-4 bg-primary-600 text-white font-bold text-lg rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus-ring ${
+                   status === 'loading' ? 'cursor-wait' : ''
+                 }`}
+               >
                 {status === 'loading' ? (
                   <span className="flex items-center justify-center gap-2">
                     <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">

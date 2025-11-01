@@ -43,36 +43,41 @@ function ConfirmationContent() {
   const [order, setOrder] = useState<Order | null>(null)
 
   useEffect(() => {
-    if (!orderId) {
-      // Try to load from localStorage
-      const lastOrder = localStorage.getItem('last_order')
-      if (lastOrder) {
-        try {
-          setOrder(JSON.parse(lastOrder))
-        } catch (err) {
+    // Only run on client side
+    if (typeof window === 'undefined') return
+
+    const loadOrder = () => {
+      try {
+        const lastOrder = localStorage.getItem('last_order')
+        
+        if (!lastOrder) {
           router.push('/shop')
+          return
         }
-      } else {
-        router.push('/shop')
-      }
-    } else {
-      // In production, fetch order from API using orderId
-      const lastOrder = localStorage.getItem('last_order')
-      if (lastOrder) {
-        try {
-          const parsedOrder = JSON.parse(lastOrder)
-          if (parsedOrder.id === orderId) {
-            setOrder(parsedOrder)
-          } else {
-            router.push('/shop')
-          }
-        } catch (err) {
+
+        const parsedOrder = JSON.parse(lastOrder) as Order
+
+        // Validate order structure
+        if (!parsedOrder || !parsedOrder.id || !parsedOrder.items || !parsedOrder.customerInfo) {
+          console.error('Invalid order data structure')
           router.push('/shop')
+          return
         }
-      } else {
+
+        // If orderId is provided, verify it matches
+        if (orderId && parsedOrder.id !== orderId) {
+          router.push('/shop')
+          return
+        }
+
+        setOrder(parsedOrder)
+      } catch (err) {
+        console.error('Error loading order:', err)
         router.push('/shop')
       }
     }
+
+    loadOrder()
   }, [orderId, router])
 
   if (!order) {
@@ -151,10 +156,12 @@ function ConfirmationContent() {
                           onClick={() => {
                             // Track download (in production, this would be more robust)
                             if (typeof window !== 'undefined') {
-                              console.log('Download started:', item.product.title)
+                              console.log('Download started:', item.product.title, 'Order:', order.id)
+                              // In production, you'd track this with analytics
                             }
                           }}
-                          className="inline-flex items-center gap-2 mt-2 text-primary-600 hover:text-primary-700 font-medium text-sm"
+                          className="inline-flex items-center gap-2 mt-2 text-primary-600 hover:text-primary-700 font-medium text-sm focus-ring rounded"
+                          aria-label={`Download ${item.product.title}`}
                         >
                           <ArrowDownTrayIcon className="h-4 w-4" />
                           Download Now
@@ -196,9 +203,11 @@ function ConfirmationContent() {
                     // Track download
                     if (typeof window !== 'undefined') {
                       console.log('Download started:', item.product.title, 'Order:', order.id)
+                      // In production, you'd track this with analytics
                     }
                   }}
-                  className="block w-full px-6 py-3 bg-white border-2 border-green-300 rounded-lg hover:bg-green-100 transition-colors text-green-900 font-semibold"
+                  className="block w-full px-6 py-3 bg-white border-2 border-green-300 rounded-lg hover:bg-green-100 transition-colors text-green-900 font-semibold focus-ring"
+                  aria-label={`Download ${item.product.title}`}
                 >
                   Download {item.product.title}
                 </a>
@@ -227,14 +236,14 @@ function ConfirmationContent() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/shop"
-            className="flex-1 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 text-center transition-colors flex items-center justify-center gap-2"
+            className="flex-1 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 text-center transition-colors flex items-center justify-center gap-2 focus-ring"
           >
             Continue Shopping
             <ArrowRightIcon className="h-5 w-5" />
           </Link>
           <Link
             href="/"
-            className="flex-1 px-6 py-4 bg-white border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 text-center transition-colors"
+            className="flex-1 px-6 py-4 bg-white border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 text-center transition-colors focus-ring"
           >
             Back to Home
           </Link>

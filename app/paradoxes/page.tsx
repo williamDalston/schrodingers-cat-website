@@ -56,44 +56,44 @@ export default function ParadoxesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+    <div className="min-h-screen gradient-mesh">
+      <div className="container-spacing section-spacing">
         <Link
           href="/"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
           Back to Home
         </Link>
 
-        <div className="mb-12 md:mb-16 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+        <header className="mb-12 md:mb-16 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
             Paradox Library
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
             Explore mind-bending paradoxes that challenge our understanding of reality, time, identity, and existence.
           </p>
-        </div>
+        </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {paradoxes.map((paradox) => (
             <Link
               key={paradox.id}
               href={paradox.status === 'coming-soon' ? '#' : `/paradoxes/${paradox.slug}`}
-              className="group block bg-white rounded-2xl border border-gray-200 p-6 md:p-8 hover:shadow-xl hover:border-primary-200 transition-all duration-300 card-3d quantum-layer relative overflow-hidden"
+              className="card-interactive p-6 md:p-8 relative overflow-hidden group"
             >
               {/* Hover gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 to-accent-50/0 group-hover:from-primary-50/50 group-hover:to-accent-50/50 transition-all duration-300 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 to-accent-50/0 group-hover:from-primary-50/50 group-hover:to-accent-50/50 transition-all duration-300 pointer-events-none rounded-2xl"></div>
               
               <div className="relative z-10">
-                <span className="inline-block px-3 py-1.5 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-4">
+                <span className="badge-primary mb-4">
                   {paradox.category}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors tracking-tight">
                   {paradox.title}
                 </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">{paradox.description}</p>
-                <div className="inline-flex items-center text-primary-600 font-semibold group-hover:gap-2 transition-all">
+                <p className="text-gray-600 mb-6 leading-relaxed text-base">{paradox.description}</p>
+                <div className="link-primary inline-flex items-center font-semibold group-hover:gap-2 transition-all">
                   {paradox.status === 'coming-soon' ? 'Coming Soon' : (
                     <>
                       Read More

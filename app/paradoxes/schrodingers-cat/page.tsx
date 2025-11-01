@@ -81,7 +81,7 @@ export default function SchrodingersCatPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen gradient-mesh">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -90,24 +90,24 @@ export default function SchrodingersCatPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="container-spacing section-spacing max-w-4xl">
         <Link
           href="/paradoxes"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
           Back to Paradox Library
         </Link>
 
         {/* Header */}
-        <div className="mb-12 md:mb-16">
-          <div className="inline-block px-4 py-2 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-4">
+        <header className="mb-12 md:mb-16">
+          <span className="badge-primary mb-4">
             Quantum Mechanics
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             Schrödinger&apos;s Cat
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl font-light">
             The famous thought experiment where a cat in a sealed box is simultaneously alive and dead 
             until someone opens it. But what does this really mean for our understanding of reality?
           </p>
@@ -120,7 +120,7 @@ export default function SchrodingersCatPage() {
               description="Explore the famous paradox where a cat is simultaneously alive and dead until observed."
             />
           </div>
-        </div>
+        </header>
 
         {/* Main Image Placeholder */}
         <div className="mb-12 rounded-2xl overflow-hidden shadow-xl">
@@ -177,7 +177,7 @@ export default function SchrodingersCatPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="card p-6 shadow-sm hover-lift">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Quantum Superposition</h3>
               <p className="text-gray-600 leading-relaxed">
                 A quantum particle can exist in multiple states simultaneously until measured. 
@@ -185,7 +185,7 @@ export default function SchrodingersCatPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="card p-6 shadow-sm hover-lift">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Wave Function Collapse</h3>
               <p className="text-gray-600 leading-relaxed">
                 When observed or measured, the superposition &quot;collapses&quot; into a single definite state. 
@@ -193,14 +193,14 @@ export default function SchrodingersCatPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="card p-6 shadow-sm hover-lift">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Observer Effect</h3>
               <p className="text-gray-600 leading-relaxed">
                 The measurement problem: does consciousness affect quantum reality, or is it something else about the act of measurement?
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="card p-6 shadow-sm hover-lift">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Scale Question</h3>
               <p className="text-gray-600 leading-relaxed">
                 Can macroscopic objects (like cats) really exist in quantum superpositions? 

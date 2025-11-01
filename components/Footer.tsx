@@ -39,7 +39,7 @@ export default function Footer() {
                 href="https://www.instagram.com/schrodingerscat_restaurant?igsh=MW1uMDFpODVxbmZ5cw%3D%3D&utm_source=qr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg hover:shadow-lg hover:scale-110 transition-all duration-200"
+                className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg hover:shadow-lg hover:scale-110 transition-all duration-200"
                 aria-label="Follow us on Instagram"
               >
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ export default function Footer() {
                 href="https://www.facebook.com/SchrodingersCatTbilisi/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg hover:shadow-lg hover:scale-110 transition-all duration-200"
+                className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg hover:shadow-lg hover:scale-110 transition-all duration-200"
                 aria-label="Follow us on Facebook"
               >
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">

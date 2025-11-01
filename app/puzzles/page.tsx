@@ -125,33 +125,38 @@ export default function PuzzlesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div className="min-h-screen gradient-mesh">
+      <div className="container-spacing section-spacing max-w-4xl">
         <Link
           href="/"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
 
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex p-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mb-6 shadow-lg">
+        <header className="text-center mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex p-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <PuzzlePieceIcon className="h-12 w-12 text-white" />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
             Weekly Puzzles
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
             Challenge your mind with weekly science puzzles. Track your progress and unlock achievements.
           </p>
-        </div>
+        </header>
 
         {/* Puzzle Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg"
+          className="card overflow-hidden shadow-sm"
         >
           {/* Header */}
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white">

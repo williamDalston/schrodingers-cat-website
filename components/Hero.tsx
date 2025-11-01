@@ -28,7 +28,7 @@ export default function Hero() {
   }, [])
   
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden particle-bg perspective-container">
+    <section className="relative min-h-screen sm:min-h-[90vh] flex items-center bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden particle-bg perspective-container py-20 sm:py-0">
       {/* Animated floating orbs with 3D depth */}
       <div className="absolute inset-0 overflow-hidden">
         {floatingElements.map((element) => (
@@ -71,7 +71,7 @@ export default function Hero() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-20 left-20 w-[600px] h-[600px] bg-gradient-to-br from-primary-400/30 to-accent-400/30 rounded-full blur-[100px] parallax-slow quantum-glow"
+          className="absolute top-20 left-20 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-gradient-to-br from-primary-400/30 to-accent-400/30 rounded-full blur-[80px] sm:blur-[100px] parallax-slow quantum-glow"
         />
         <motion.div
           animate={{
@@ -85,7 +85,7 @@ export default function Hero() {
             ease: "easeInOut",
             delay: 1
           }}
-          className="absolute bottom-20 right-20 w-[700px] h-[700px] bg-gradient-to-tr from-accent-400/30 to-primary-400/30 rounded-full blur-[120px] parallax-medium quantum-glow"
+          className="absolute bottom-20 right-20 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-gradient-to-tr from-accent-400/30 to-primary-400/30 rounded-full blur-[100px] sm:blur-[120px] parallax-medium quantum-glow"
         />
       </div>
 

@@ -178,27 +178,32 @@ export default function ProgressPage() {
   const totalBadges = badges.length
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div className="min-h-screen gradient-mesh">
+      <div className="container-spacing section-spacing max-w-4xl">
         <Link
           href="/"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
           Back to Home
         </Link>
 
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex p-5 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mb-6 shadow-lg">
+        <header className="text-center mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex p-5 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <ChartBarIcon className="h-12 w-12 text-white" aria-hidden="true" />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
             Progress Tracking
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
             See your exploration journey with badges, streaks, and personalized learning paths.
           </p>
-        </div>
+        </header>
 
         {/* Not Subscribed Message */}
         {!userEmail && !loading && (
@@ -219,7 +224,7 @@ export default function ProgressPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-2xl border border-gray-200 p-12 shadow-lg"
+            className="card p-12 shadow-sm"
           >
             <LoadingSpinner size="lg" text="Loading your progress..." />
             <div className="mt-8">
@@ -274,7 +279,7 @@ export default function ProgressPage() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ type: 'spring', stiffness: 200 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg text-center cursor-default group"
+                  className="card p-8 text-center cursor-default group hover-lift"
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
@@ -303,7 +308,7 @@ export default function ProgressPage() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg text-center cursor-default group"
+                  className="card p-8 text-center cursor-default group hover-lift"
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
@@ -332,7 +337,7 @@ export default function ProgressPage() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg text-center cursor-default group"
+                  className="card p-8 text-center cursor-default group hover-lift"
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
@@ -361,7 +366,7 @@ export default function ProgressPage() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ type: 'spring', stiffness: 200, delay: 0.3 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg text-center cursor-default group"
+                  className="card p-8 text-center cursor-default group hover-lift"
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}

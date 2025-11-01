@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { 
   ArrowLeftIcon, 
   ShoppingBagIcon,
@@ -60,38 +61,44 @@ export default function ShopPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div className="min-h-screen gradient-mesh">
+      <div className="container-spacing section-spacing">
         <Link
           href="/"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group transition-colors"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
           Back to Home
         </Link>
 
-        <div className="mb-12 md:mb-16">
-          <div className="inline-flex p-5 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl mb-6 shadow-lg">
+        <header className="mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex p-5 gradient-primary rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <ShoppingBagIcon className="h-12 w-12 text-white" aria-hidden="true" />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">Shop</h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed">
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">Shop</h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed font-light">
             Support what you love. Products naturally emerge from the content you explore. 
             No pressure—just beautiful ways to support the work.
           </p>
-        </div>
+        </header>
 
         {/* Filters and Search */}
         <div className="mb-8 space-y-4">
           {/* Search Bar */}
           <div className="relative">
-            <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
             <input
               type="text"
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="input pl-12 pr-4 focus-ring"
+              aria-label="Search products"
             />
           </div>
 
@@ -99,7 +106,7 @@ export default function ShopPage() {
           <div className="flex flex-wrap items-center gap-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors"
+              className="btn-secondary flex items-center gap-2"
             >
               <FunnelIcon className="h-5 w-5" />
               Filters
@@ -111,11 +118,12 @@ export default function ShopPage() {
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-lg transition-colors ${
+                    className={`px-4 py-2 rounded-lg transition-all focus-ring ${
                       selectedCategory === category
-                        ? 'bg-primary-600 text-white'
-                        : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-100'
+                        ? 'bg-primary-600 text-white shadow-md scale-105'
+                        : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-primary-300'
                     }`}
+                    aria-pressed={selectedCategory === category}
                   >
                     {category === 'all' ? 'All Products' : category.charAt(0).toUpperCase() + category.slice(1)}
                   </button>
@@ -126,7 +134,8 @@ export default function ShopPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="ml-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="input ml-auto focus-ring"
+              aria-label="Sort products"
             >
               <option value="newest">Newest First</option>
               <option value="name">Name A-Z</option>
@@ -153,7 +162,7 @@ export default function ShopPage() {
             {filteredAndSortedProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow"
+                className="card-hover overflow-hidden"
               >
                 <Link href={`/shop/${product.slug}`}>
                   <div className="h-64 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center relative">
@@ -188,10 +197,10 @@ export default function ShopPage() {
                   <button
                     onClick={() => handleAddToCart(product)}
                     disabled={product.inStock === false}
-                    className={`w-full px-6 py-3 font-semibold rounded-lg transition-colors ${
+                    className={`w-full font-semibold transition-all focus-ring ${
                       product.inStock === false
-                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                        : 'bg-primary-600 text-white hover:bg-primary-700'
+                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed rounded-lg px-6 py-3'
+                        : 'btn-primary'
                     }`}
                   >
                     {product.inStock === false ? 'Out of Stock' : 'Add to Cart'}
@@ -202,8 +211,8 @@ export default function ShopPage() {
           </div>
         )}
 
-        <div className="mt-12 max-w-2xl mx-auto p-6 bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl border border-primary-200 text-center">
-          <p className="text-gray-700">
+        <div className="mt-12 max-w-2xl mx-auto card p-6 text-center">
+          <p className="text-gray-700 font-light">
             <span className="font-semibold">Our Promise:</span> Every product is carefully designed and directly connected to content you&apos;ve explored. 
             We&apos;re building this shop thoughtfully—check back soon!
           </p>

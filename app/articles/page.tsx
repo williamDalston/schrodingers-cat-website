@@ -57,47 +57,53 @@ export default function ArticlesPage() {
   const totalCount = allArticles.length
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div className="min-h-screen gradient-mesh">
+      <div className="container-spacing section-spacing">
         <Link
           href="/"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
 
         {/* Header */}
-        <div className="mb-12 md:mb-16 text-center">
-          <div className="inline-flex p-5 bg-gradient-to-br from-primary-500 to-accent-600 rounded-2xl mb-6 shadow-lg">
+        <header className="mb-12 md:mb-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex p-5 gradient-primary rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <BookOpenIcon className="h-12 w-12 text-white" />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+          </motion.div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
             Quantum Consciousness Series
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4 font-light">
             A deep dive into how quantum mechanics intersects with consciousness. Based on insights from philosopher Kelvin McQueen.
           </p>
-          <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
-            <span>{publishedCount} Published</span>
-            <span>•</span>
-            <span>{totalCount} Total Articles</span>
-            <span>•</span>
-            <span>~54,000 Words</span>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-500">
+            <span className="badge-info">{publishedCount} Published</span>
+            <span className="text-gray-400">•</span>
+            <span className="badge">{totalCount} Total Articles</span>
+            <span className="text-gray-400">•</span>
+            <span className="badge">~54,000 Words</span>
           </div>
-        </div>
+        </header>
 
         {/* Search and Filter */}
         <div className="mb-8 space-y-4">
           {/* Search Bar */}
           <div className="relative">
-            <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
             <input
               type="text"
               placeholder="Search articles by title, topic, or keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-900 placeholder-gray-400"
+              className="input pl-12 pr-4 focus-ring"
+              aria-label="Search articles"
             />
           </div>
 
@@ -123,11 +129,12 @@ export default function ArticlesPage() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  className={`px-4 py-2 rounded-lg font-medium transition-all focus-ring ${
                     selectedCategory === category
-                      ? `${colors.bg} ${colors.text} border-2 ${colors.border} shadow-md`
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+                      ? `${colors.bg} ${colors.text} border-2 ${colors.border} shadow-md scale-105`
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-primary-300'
                   }`}
+                  aria-pressed={selectedCategory === category}
                 >
                   {formatCategoryName(category)}
                 </button>
@@ -157,10 +164,10 @@ export default function ArticlesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group block bg-white rounded-2xl border border-gray-200 p-6 md:p-8 hover:shadow-xl hover:border-primary-200 transition-all duration-300 relative overflow-hidden"
+                  className="card-hover p-6 md:p-8 relative overflow-hidden group"
                 >
                   {/* Hover gradient effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 to-accent-50/0 group-hover:from-primary-50/50 group-hover:to-accent-50/50 transition-all duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 to-accent-50/0 group-hover:from-primary-50/50 group-hover:to-accent-50/50 transition-all duration-300 pointer-events-none rounded-2xl"></div>
                   
                   <div className="relative z-10">
                     {/* Category Badge */}
@@ -219,7 +226,7 @@ export default function ArticlesPage() {
                     {article.status === 'published' ? (
                       <Link
                         href={`/articles/${slug}`}
-                        className="inline-flex items-center text-primary-600 font-semibold hover:gap-2 transition-all group/link"
+                        className="link-primary inline-flex items-center font-semibold hover:gap-2 transition-all group/link focus-ring rounded-lg px-2 py-1 -ml-2"
                       >
                         Read Article
                         <svg
@@ -227,6 +234,7 @@ export default function ArticlesPage() {
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
+                          aria-hidden="true"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>

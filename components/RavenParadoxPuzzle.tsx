@@ -18,6 +18,7 @@ export default function RavenParadoxPuzzle() {
   const [selectedEvidence, setSelectedEvidence] = useState<EvidenceType[]>([])
   const [showExplanation, setShowExplanation] = useState(false)
   const [completed, setCompleted] = useState(false)
+  const [showHint, setShowHint] = useState(false)
 
   const hypothesis = 'All ravens are black'
   const equivalentHypothesis = 'All non-black things are non-ravens'
@@ -87,6 +88,7 @@ export default function RavenParadoxPuzzle() {
     setSelectedEvidence([])
     setShowExplanation(false)
     setCompleted(false)
+    setShowHint(false)
   }
 
   const strongEvidence = selectedEvidence.filter(id => {
@@ -104,15 +106,37 @@ export default function RavenParadoxPuzzle() {
   return (
     <div className="w-full">
       {/* Instructions */}
-      <div className="mb-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
-        <h4 className="font-semibold text-gray-900 mb-2">The Paradox:</h4>
-        <p className="text-sm text-gray-700 mb-3">
+      <div className="mb-6 p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border-2 border-purple-200">
+        <div className="flex items-start justify-between mb-3">
+          <h4 className="font-bold text-gray-900 text-lg">The Paradox:</h4>
+          {!completed && (
+            <button
+              onClick={() => setShowHint(!showHint)}
+              className="text-xs text-purple-600 hover:text-purple-700 font-medium underline"
+            >
+              {showHint ? 'Hide Hint' : 'Need a Hint?'}
+            </button>
+          )}
+        </div>
+        <p className="text-sm text-gray-700 mb-3 leading-relaxed">
           The statement &quot;All ravens are black&quot; is logically equivalent to &quot;All non-black things are non-ravens.&quot;
         </p>
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-gray-700 mb-2">
           <strong>Your task:</strong> Select which observations you think provide meaningful evidence for the hypothesis 
           &quot;All ravens are black.&quot; Then see if logic and intuition agree!
         </p>
+        {showHint && !completed && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            className="mt-3 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded-r"
+          >
+            <p className="text-xs text-yellow-900">
+              <strong>Hint:</strong> Think about what would actually tell you something about ravens. Does seeing a red apple 
+              really tell you anything about whether all ravens are black? Or does it just satisfy the logical equivalence in a meaningless way?
+            </p>
+          </motion.div>
+        )}
       </div>
 
       {/* Hypothesis Display */}
@@ -178,14 +202,20 @@ export default function RavenParadoxPuzzle() {
 
       {/* Check Answer Button */}
       {!completed && selectedEvidence.length > 0 && (
-        <div className="mb-6">
-          <button
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6"
+        >
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={checkAnswer}
-            className="w-full px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
+            className="w-full px-6 py-3 bg-gradient-to-r from-primary-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg transition-all"
           >
-            Check My Answer
-          </button>
-        </div>
+            Check My Answer ({selectedEvidence.length} selected)
+          </motion.button>
+        </motion.div>
       )}
 
       {/* Explanation */}
@@ -265,12 +295,14 @@ export default function RavenParadoxPuzzle() {
 
       {/* Reset Button */}
       {completed && (
-        <button
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={reset}
-          className="w-full px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+          className="w-full px-6 py-3 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 font-bold rounded-lg hover:shadow-md transition-all border border-gray-300"
         >
           Try Again
-        </button>
+        </motion.button>
       )}
     </div>
   )

@@ -27,25 +27,25 @@ export default function BanachTarskiParadoxPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary-50/30">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
         <Link
           href="/paradoxes"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8"
+          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
         >
-          <ArrowLeftIcon className="h-5 w-5 mr-2" />
+          <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
           Back to Paradox Library
         </Link>
 
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-12 md:mb-16">
           <div className="inline-block px-4 py-2 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-4">
             Mathematics
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             The Banach-Tarski Paradox
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
             A mathematical theorem that seems to violate physics: you can cut a solid sphere into pieces, 
             rearrange them using only rotation and translation, and end up with two identical spheres the same size as the original.
           </p>
