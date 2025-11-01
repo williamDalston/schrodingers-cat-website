@@ -497,8 +497,8 @@ button:active, a:active, [role="button"]:active {
   --paw-tilt-max: 10deg;
   --paw-grip-squeeze: 1.06;
   --paw-edge-shadow-max: 0.25;
-  --paw-z-index: 40;
-  --paw-opacity: 0.25;
+  --paw-z-index: -1;
+  --paw-opacity: 0.15;
 }
 
 .edge-shadow {
@@ -533,6 +533,7 @@ button:active, a:active, [role="button"]:active {
   pointer-events: none;
   z-index: var(--paw-z-index);
   transform-style: preserve-3d;
+  overflow: hidden;
 }
 
 .paw {
@@ -543,8 +544,10 @@ button:active, a:active, [role="button"]:active {
   transform-origin: center top;
   will-change: transform, filter;
   opacity: var(--paw-opacity);
-  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.12));
+  filter: drop-shadow(0 6px 4px rgba(0, 0, 0, 0.06));
   transition: opacity 0.3s ease;
+  mix-blend-mode: multiply;
+  /* Z-index -1 ensures they're always behind content */
 }
 
 .paw svg,
@@ -555,13 +558,13 @@ button:active, a:active, [role="button"]:active {
 }
 
 .paw.left {
-  left: 0;
-  transform: translate3d(-20px, -60px, 0) rotateY(-8deg) rotateZ(-8deg);
+  left: -40px;
+  transform: translate3d(-30px, -60px, 0) rotateY(-12deg) rotateZ(-8deg);
 }
 
 .paw.right {
-  right: 0;
-  transform: translate3d(20px, -60px, 0) rotateY(8deg) rotateZ(8deg) scaleX(-1);
+  right: -40px;
+  transform: translate3d(30px, -60px, 0) rotateY(12deg) rotateZ(8deg) scaleX(-1);
 }
 
 /* Independent movement for arm and paw groups */
