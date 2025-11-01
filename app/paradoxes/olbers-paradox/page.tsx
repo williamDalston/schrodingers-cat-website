@@ -149,7 +149,7 @@ export default function OlbersParadoxPage() {
               This means we can only see stars within a finite distance (the observable universe). 
               Light from stars beyond this distance hasn&apos;t had time to reach us yet.
             </p>
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-6">
+            <div className="bg-white p-6 rounded-xl border-2 border-gray-300 shadow-lg mb-6">
               <p className="text-gray-700">
                 Even if there are infinite stars, we can only observe those within our light cone—the region 
                 of spacetime from which light has had time to travel to us. The observable universe has a 
@@ -200,7 +200,7 @@ export default function OlbersParadoxPage() {
               It glows uniformly in microwave radiation.
             </p>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-6">
+            <div className="bg-white p-6 rounded-xl border-2 border-gray-300 shadow-lg mb-6">
               <p className="text-gray-700 mb-4">
                 The <strong>Cosmic Microwave Background (CMB)</strong> is the afterglow of the Big Bang, 
                 redshifted from visible light into microwaves over 13.8 billion years. If our eyes could see microwaves, 
@@ -261,7 +261,7 @@ export default function OlbersParadoxPage() {
             {relatedProducts.map((product) => (
               <div
                 key={product.slug || product.title}
-                className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl border-2 border-gray-300 overflow-hidden hover:shadow-xl transition-shadow shadow-md"
               >
                 <div className="h-48 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center">
                   <ShoppingBagIcon className="h-20 w-20 text-primary-400 opacity-50" />

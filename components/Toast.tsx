@@ -45,6 +45,9 @@ export default function Toast({
           exit={{ opacity: 0, y: -20, scale: 0.9 }}
           transition={{ type: 'spring', damping: 20, stiffness: 300 }}
           className="fixed top-20 right-4 z-50 max-w-sm"
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
         >
           <div className={`
             ${colors[type]} text-white px-6 py-4 rounded-lg shadow-2xl
@@ -54,16 +57,18 @@ export default function Toast({
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.1, type: 'spring' }}
+              aria-hidden="true"
             >
               <CheckCircleIcon className="h-6 w-6 flex-shrink-0" />
             </motion.div>
             <p className="flex-1 font-medium">{message}</p>
             <button
               onClick={onClose}
-              className="p-1 hover:bg-white/20 rounded transition-colors"
+              className="p-1 hover:bg-white/20 rounded transition-colors focus-ring"
               aria-label="Close notification"
+              type="button"
             >
-              <XMarkIcon className="h-5 w-5" />
+              <XMarkIcon className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
         </motion.div>

@@ -31,8 +31,8 @@ export function trackEvent(eventName: AnalyticsEvent, params?: EventParams): voi
   if (typeof window.gtag !== 'undefined') {
     window.gtag('event', eventName, {
       event_category: params?.event_category || 'user_interaction',
-      event_label: params?.event_label,
-      value: params?.value,
+      ...(params?.event_label && { event_label: params.event_label }),
+      ...(params?.value !== undefined && { value: params.value }),
       ...params,
     })
   }

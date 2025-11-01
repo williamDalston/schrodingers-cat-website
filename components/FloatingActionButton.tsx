@@ -34,10 +34,13 @@ export default function FloatingActionButton() {
       <AnimatePresence>
         {isExpanded && (
           <motion.div
+            id="fab-menu"
             initial={{ opacity: 0, y: 20, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
             className="mb-4 space-y-3"
+            role="menu"
+            aria-label="Quick actions menu"
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -84,14 +87,21 @@ export default function FloatingActionButton() {
                 setIsExpanded(true)
               }
             }}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' && isExpanded) {
+                setIsExpanded(false)
+              }
+            }}
             className="bg-gradient-to-r from-primary-600 to-accent-600 text-white p-4 rounded-full shadow-2xl focus-ring"
             aria-label={isExpanded ? 'Scroll to top' : 'Open quick actions'}
+            aria-expanded={isExpanded}
+            aria-controls="fab-menu"
           >
             <motion.div
               animate={{ rotate: isExpanded ? 180 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              <ArrowUpIcon className="h-6 w-6" />
+              <ArrowUpIcon className="h-6 w-6" aria-hidden="true" />
             </motion.div>
           </motion.button>
         )}

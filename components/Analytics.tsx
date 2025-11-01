@@ -51,10 +51,13 @@ export default function Analytics() {
 }
 
 // Type declaration for gtag
+type GtagCommand = 'config' | 'event' | 'set'
+type GtagParams = Record<string, string | number | boolean>
+
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void
-    dataLayer: any[]
+    gtag: (command: GtagCommand, targetId: string, config?: GtagParams) => void
+    dataLayer: unknown[]
   }
 }
 

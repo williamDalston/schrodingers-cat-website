@@ -105,7 +105,7 @@ export default function BanachTarskiParadoxPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="bg-white p-6 rounded-xl border-2 border-gray-300 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-3">The Axiom of Choice</h3>
               <p className="text-gray-600 leading-relaxed">
                 A fundamental principle in set theory that allows choosing one element from each of infinitely many sets, 
@@ -113,7 +113,7 @@ export default function BanachTarskiParadoxPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="bg-white p-6 rounded-xl border-2 border-gray-300 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Non-Measurable Sets</h3>
               <p className="text-gray-600 leading-relaxed">
                 The pieces used in Banach-Tarski are &quot;non-measurable&quot;—they don&apos;t have a well-defined volume. 
@@ -121,7 +121,7 @@ export default function BanachTarskiParadoxPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="bg-white p-6 rounded-xl border-2 border-gray-300 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Infinite Decomposition</h3>
               <p className="text-gray-600 leading-relaxed">
                 The sphere is decomposed into infinitely complex pieces—so complex that they can&apos;t actually be constructed 
@@ -129,7 +129,7 @@ export default function BanachTarskiParadoxPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="bg-white p-6 rounded-xl border-2 border-gray-300 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-3">Rotation and Translation Only</h3>
               <p className="text-gray-600 leading-relaxed">
                 The pieces are only rotated and translated (moved)—never stretched, compressed, or distorted. 
@@ -186,7 +186,7 @@ export default function BanachTarskiParadoxPage() {
         <section className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The Visual Idea</h2>
           
-          <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+          <div className="bg-white p-8 rounded-xl border-2 border-gray-300 shadow-lg">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">
@@ -286,7 +286,7 @@ export default function BanachTarskiParadoxPage() {
             {relatedProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl border-2 border-gray-300 overflow-hidden hover:shadow-xl transition-shadow shadow-md"
               >
                 <div className="h-48 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center">
                   <ShoppingBagIcon className="h-20 w-20 text-primary-400 opacity-50" />

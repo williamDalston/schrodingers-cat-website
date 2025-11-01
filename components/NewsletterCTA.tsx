@@ -14,6 +14,14 @@ export default function NewsletterCTA() {
     setStatus('loading')
     setMessage('')
 
+    // Validate email format client-side first
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      setStatus('error')
+      setMessage('Please enter a valid email address.')
+      return
+    }
+
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
@@ -23,30 +31,80 @@ export default function NewsletterCTA() {
         body: JSON.stringify({ email }),
       })
 
+      // Check if response is ok before parsing
+      if (!response.ok) {
+        // Try to get error message from response
+        let errorMessage = 'Something went wrong. Please try again.'
+        try {
+          const errorData = await response.json()
+          errorMessage = errorData.error || errorMessage
+        } catch {
+          // If JSON parsing fails, use default message
+          errorMessage = `Server error: ${response.status} ${response.statusText}`
+        }
+        setStatus('error')
+        setMessage(errorMessage)
+        return
+      }
+
       const data = await response.json()
 
-      if (response.ok) {
-        setStatus('success')
-        setMessage(data.message)
-        // Store email in localStorage for puzzle/progress tracking
-        if (typeof window !== 'undefined' && email) {
+      setStatus('success')
+      setMessage(data.message || 'Successfully subscribed! Check your email for a welcome message.')
+      // Store email in localStorage for puzzle/progress tracking
+      if (typeof window !== 'undefined' && email) {
+        try {
           localStorage.setItem('newsletter_email', email)
+        } catch (storageError) {
+          console.warn('Failed to store email in localStorage:', storageError)
+          // Don't fail the subscription if localStorage fails
         }
-        setEmail('')
-      } else {
-        setStatus('error')
-        setMessage(data.error || 'Something went wrong. Please try again.')
       }
+      setEmail('')
     } catch (error) {
       setStatus('error')
-      setMessage('Failed to submit. Please check your connection and try again.')
+      if (error instanceof Error) {
+        setMessage(`Failed to submit: ${error.message}. Please check your connection and try again.`)
+      } else {
+        setMessage('Failed to submit. Please check your connection and try again.')
+      }
       console.error('Newsletter subscription error:', error)
     }
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary-600 to-accent-600 perspective-container">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 perspective-container relative overflow-hidden">
+      {/* Subtle animated background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            x: [0, -80, 0],
+            y: [0, -40, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute bottom-20 right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+        />
+      </div>
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,13 +112,22 @@ export default function NewsletterCTA() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <EnvelopeIcon className="h-16 w-16 text-white mx-auto mb-6" aria-hidden="true" />
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Stay Updated on Research
+          <motion.div
+            animate={{ 
+              rotate: [0, 10, -10, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+            className="inline-block mb-8"
+          >
+            <EnvelopeIcon className="h-20 w-20 text-white icon-3d quantum-wave drop-shadow-2xl" aria-hidden="true" />
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 text-3d leading-tight drop-shadow-lg">
+            Daily Curiosity, Delivered
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Receive weekly insights on quantum consciousness theories, new research, and philosophical explorations. 
-            Scholarly content delivered to your inbox.
+          <p className="text-xl md:text-2xl text-white/95 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+            Get your daily dose of fascinating science, thought experiments, and mind-bending paradoxes.{' '}
+            <span className="font-medium">Free. No spam. Just pure curiosity.</span>
           </p>
 
           <form
@@ -77,7 +144,7 @@ export default function NewsletterCTA() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your.email@example.com"
-              className="flex-1 px-6 py-4 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white quantum-layer depth-shadow-1 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="flex-1 px-6 py-5 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/80 quantum-layer depth-shadow-1 disabled:opacity-50 disabled:cursor-not-allowed transition-all backdrop-blur-sm bg-white/95"
               required
               aria-required="true"
               disabled={status === 'loading'}
@@ -88,7 +155,7 @@ export default function NewsletterCTA() {
               type="submit"
               whileHover={status === 'idle' ? { scale: 1.05, y: -2 } : {}}
               whileTap={status === 'idle' ? { scale: 0.95 } : {}}
-              className="relative px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg btn-3d quantum-glow depth-shadow-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center overflow-hidden group"
+              className="relative px-10 py-5 bg-white text-blue-600 font-bold rounded-xl btn-3d quantum-glow depth-shadow-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center overflow-hidden group hover:shadow-2xl hover:shadow-white/30 transition-all"
               aria-label="Subscribe to daily curiosity newsletter"
               disabled={status === 'loading' || status === 'success'}
             >

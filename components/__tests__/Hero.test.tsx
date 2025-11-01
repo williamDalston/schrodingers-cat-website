@@ -6,46 +6,42 @@ describe('Hero', () => {
   it('renders the main heading', () => {
     render(<Hero />)
     
-    expect(screen.getByText('Explore Science')).toBeInTheDocument()
-    expect(screen.getByText('Without Limits')).toBeInTheDocument()
+    expect(screen.getByText(/Exploring the Nature of/i)).toBeInTheDocument()
+    expect(screen.getByText(/Consciousness & Reality/i)).toBeInTheDocument()
   })
 
   it('renders the subtitle with correct content', () => {
     render(<Hero />)
     
-    expect(screen.getByText(/A free exploration platform/i)).toBeInTheDocument()
-    expect(screen.getByText(/95% free content • 5% support what you love/i)).toBeInTheDocument()
+    expect(screen.getByText(/Deep exploration of quantum consciousness/i)).toBeInTheDocument()
   })
 
   it('renders CTA buttons with correct text', () => {
     render(<Hero />)
     
-    expect(screen.getByText('Start Exploring')).toBeInTheDocument()
-    expect(screen.getByText('Daily Curiosity')).toBeInTheDocument()
+    expect(screen.getByText('Explore Articles')).toBeInTheDocument()
+    expect(screen.getByText('Research Library')).toBeInTheDocument()
   })
 
-  it('renders trust indicators', () => {
+  it('renders the badge', () => {
     render(<Hero />)
     
-    expect(screen.getByText('No signup required')).toBeInTheDocument()
-    expect(screen.getByText('No paywalls')).toBeInTheDocument()
-    expect(screen.getByText('Pure exploration')).toBeInTheDocument()
+    expect(screen.getByText(/Quantum Mechanics & Consciousness Research/i)).toBeInTheDocument()
   })
 
   it('has correct hrefs for CTA links', () => {
     render(<Hero />)
     
-    const startExploringLink = screen.getByText('Start Exploring').closest('a')
-    const dailyCuriosityLink = screen.getByText('Daily Curiosity').closest('a')
+    const exploreArticlesLink = screen.getByText('Explore Articles').closest('a')
+    const researchLibraryLink = screen.getByText('Research Library').closest('a')
     
-    expect(startExploringLink).toHaveAttribute('href', '/paradoxes')
-    expect(dailyCuriosityLink).toHaveAttribute('href', '/curiosity')
+    expect(exploreArticlesLink).toHaveAttribute('href', '/paradoxes')
+    expect(researchLibraryLink).toHaveAttribute('href', '/curiosity')
   })
 
-  it('renders the badge with location information', () => {
+  it('renders the interactive quantum wave component', () => {
     render(<Hero />)
     
-    expect(screen.getByText(/Free Forever • Made in Tbilisi/i)).toBeInTheDocument()
+    expect(screen.getByText(/Interactive: Wave-Particle Duality/i)).toBeInTheDocument()
   })
 })
-

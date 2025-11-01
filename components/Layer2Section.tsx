@@ -13,21 +13,21 @@ const retentionFeatures = [
   {
     icon: PuzzlePieceIcon,
     title: 'Weekly Puzzles',
-    description: 'Challenge your mind with weekly science puzzles. Track your progress and unlock achievements.',
+    description: 'Engage with challenging philosophical problems and quantum paradoxes to deepen your understanding.',
     href: '/puzzles',
     color: 'from-orange-500 to-orange-600',
   },
   {
     icon: ChartBarIcon,
     title: 'Progress Tracking',
-    description: 'See your exploration journey with badges, streaks, and personalized learning paths.',
+    description: 'Monitor your comprehension and engagement with complex topics through structured learning.',
     href: '/progress',
     color: 'from-blue-500 to-blue-600',
   },
   {
     icon: UserGroupIcon,
     title: 'Community',
-    description: 'Join discussions, share insights, and connect with fellow science enthusiasts.',
+    description: 'Participate in scholarly discussions and exchange insights with researchers and scholars.',
     href: '/community',
     color: 'from-green-500 to-green-600',
   },
@@ -35,7 +35,7 @@ const retentionFeatures = [
 
 export default function Layer2Section() {
   return (
-    <section className="py-32 bg-gradient-to-b from-white via-orange-50/20 to-blue-50/20 relative overflow-hidden perspective-container">
+    <section className="py-32 bg-gradient-to-b from-white via-purple-50/20 via-pink-50/20 to-blue-50/20 relative overflow-hidden perspective-container">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 right-10 w-96 h-96 bg-orange-400 rounded-full blur-3xl animate-float"></div>
@@ -58,9 +58,9 @@ export default function Layer2Section() {
           >
             Deep Engagement
           </motion.span>
-          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-            <span className="block">Ongoing</span>
-            <span className="bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <span className="block mb-2">Ongoing</span>
+            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
               Discovery
             </span>
           </h2>
@@ -123,10 +123,10 @@ export default function Layer2Section() {
         >
           <div className="inline-block p-8 glass rounded-2xl border border-white/50 shadow-xl quantum-layer">
             <p className="text-lg text-gray-700 mb-3">
-              <span className="font-bold">💡 Daily Email:</span> Get your curiosity delivered every morning.
+              <span className="font-bold">Weekly Newsletter:</span> Receive research updates and insights on quantum consciousness.
             </p>
             <Link href="/newsletter" className="inline-flex items-center text-primary-600 hover:text-primary-700 font-bold text-lg quantum-layer group">
-              Subscribe free
+              Subscribe
               <ArrowRightIcon className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" aria-hidden="true" />
             </Link>
           </div>

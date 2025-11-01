@@ -18,7 +18,6 @@ describe('NewsletterCTA', () => {
 
   it('renders the subscribe button', () => {
     render(<NewsletterCTA />)
-    expect(screen.getByLabelText(/subscribe to daily curiosity/i)).toBeInTheDocument()
     expect(screen.getByText('Subscribe Free')).toBeInTheDocument()
   })
 
@@ -30,14 +29,13 @@ describe('NewsletterCTA', () => {
 
   it('renders the heading and subtitle', () => {
     render(<NewsletterCTA />)
-    expect(screen.getByText('Daily Curiosity, Delivered')).toBeInTheDocument()
-    expect(screen.getByText(/get your daily dose/i)).toBeInTheDocument()
+    expect(screen.getByText('Stay Updated on Research')).toBeInTheDocument()
+    expect(screen.getByText(/Receive weekly insights/i)).toBeInTheDocument()
   })
 
-  it('displays a disclaimer message', () => {
+  it('displays email input with correct placeholder', () => {
     render(<NewsletterCTA />)
-    expect(screen.getByText(/join thousands exploring/i)).toBeInTheDocument()
-    expect(screen.getByText(/unsubscribe anytime/i)).toBeInTheDocument()
+    const input = screen.getByPlaceholderText('your.email@example.com')
+    expect(input).toBeInTheDocument()
   })
 })
-

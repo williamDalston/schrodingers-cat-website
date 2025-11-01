@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { UserGroupIcon, BookOpenIcon, LightBulbIcon } from '@heroicons/react/24/outline'
 
@@ -68,16 +68,16 @@ export default function InteractiveStats() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isVisible, setIsVisible] = useState(false)
 
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY })
+  }, [])
+
   useEffect(() => {
     setIsVisible(true)
     
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  }, [handleMouseMove])
 
   return (
     <motion.div
@@ -90,7 +90,7 @@ export default function InteractiveStats() {
       <motion.div
         className="absolute inset-0 opacity-10"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.3), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(22, 163, 74, 0.3), transparent 40%)`,
         }}
         animate={{
           opacity: [0.05, 0.15, 0.05],

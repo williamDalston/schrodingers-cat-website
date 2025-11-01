@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Schrödinger's Cat"
 
     // Send notification to admin when someone subscribes
-    const adminEmail = 'faradaybach@gmail.com'
+    const adminEmail = process.env.ADMIN_EMAIL || 'faradaybach@gmail.com'
     
     try {
       if (resend) {

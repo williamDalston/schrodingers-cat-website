@@ -67,10 +67,10 @@ export default function ParadoxesPage() {
         </Link>
 
         <header className="mb-12 md:mb-16 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 tracking-tight">
             Paradox Library
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium">
             Explore mind-bending paradoxes that challenge our understanding of reality, time, identity, and existence.
           </p>
         </header>
@@ -89,10 +89,10 @@ export default function ParadoxesPage() {
                 <span className="badge-primary mb-4">
                   {paradox.category}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors tracking-tight">
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4 group-hover:text-primary-600 transition-colors tracking-tight">
                   {paradox.title}
                 </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed text-base">{paradox.description}</p>
+                <p className="text-gray-700 mb-6 leading-relaxed text-base font-medium">{paradox.description}</p>
                 <div className="link-primary inline-flex items-center font-semibold group-hover:gap-2 transition-all">
                   {paradox.status === 'coming-soon' ? 'Coming Soon' : (
                     <>

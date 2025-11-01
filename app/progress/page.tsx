@@ -193,14 +193,14 @@ export default function ProgressPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex p-5 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="inline-flex p-5 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl mb-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
             <ChartBarIcon className="h-12 w-12 text-white" aria-hidden="true" />
           </motion.div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 tracking-tight">
             Progress Tracking
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
             See your exploration journey with badges, streaks, and personalized learning paths.
           </p>
         </header>
@@ -511,10 +511,10 @@ export default function ProgressPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white shadow-lg"
+              className="bg-gradient-to-br from-primary-500 via-accent-500 to-tertiary-600 rounded-2xl p-8 text-white shadow-lg"
             >
               <h3 className="text-2xl font-bold mb-3">🚀 Keep Exploring!</h3>
-              <p className="text-blue-100 text-lg">
+              <p className="text-white/90 text-lg">
                 You&apos;re doing great! Continue reading articles, curiosities, and solving puzzles to unlock 
                 more achievements and keep your streak alive.
               </p>

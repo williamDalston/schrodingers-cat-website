@@ -55,39 +55,75 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const addToCart = useCallback((product: Product, quantity: number = 1) => {
-    const updatedCart = addItemToCart(product, quantity)
-    setCart(updatedCart)
-    // Trigger custom event for other components
-    window.dispatchEvent(new CustomEvent('cartUpdated', { detail: updatedCart }))
+    try {
+      const updatedCart = addItemToCart(product, quantity)
+      setCart(updatedCart)
+      // Trigger custom event for other components
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: updatedCart }))
+      }
+    } catch (error) {
+      console.error('Error adding item to cart:', error)
+      // Could show a toast notification here in the future
+    }
   }, [])
 
   const removeFromCart = useCallback((productId: string) => {
-    const updatedCart = removeItemFromCart(productId)
-    setCart(updatedCart)
-    window.dispatchEvent(new CustomEvent('cartUpdated', { detail: updatedCart }))
+    try {
+      const updatedCart = removeItemFromCart(productId)
+      setCart(updatedCart)
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: updatedCart }))
+      }
+    } catch (error) {
+      console.error('Error removing item from cart:', error)
+    }
   }, [])
 
   const updateQuantity = useCallback((productId: string, quantity: number) => {
-    const updatedCart = updateItemQuantity(productId, quantity)
-    setCart(updatedCart)
-    window.dispatchEvent(new CustomEvent('cartUpdated', { detail: updatedCart }))
+    try {
+      const updatedCart = updateItemQuantity(productId, quantity)
+      setCart(updatedCart)
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: updatedCart }))
+      }
+    } catch (error) {
+      console.error('Error updating cart quantity:', error)
+    }
   }, [])
 
   const clearCart = useCallback(() => {
-    const emptyCart = clearCartStorage()
-    setCart(emptyCart)
-    window.dispatchEvent(new CustomEvent('cartUpdated', { detail: emptyCart }))
+    try {
+      const emptyCart = clearCartStorage()
+      setCart(emptyCart)
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: emptyCart }))
+      }
+    } catch (error) {
+      console.error('Error clearing cart:', error)
+    }
   }, [])
 
   const refreshCart = useCallback(() => {
-    setCart(getCart())
+    try {
+      setCart(getCart())
+    } catch (error) {
+      console.error('Error refreshing cart:', error)
+      setCart({ items: [], total: 0, itemCount: 0 })
+    }
   }, [])
 
   // Listen for cart updates from this tab
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     const handleCartUpdate = (event: Event) => {
-      const customEvent = event as CustomEvent<Cart>
-      setCart(customEvent.detail)
+      try {
+        const customEvent = event as CustomEvent<Cart>
+        setCart(customEvent.detail)
+      } catch (error) {
+        console.error('Error handling cart update event:', error)
+      }
     }
 
     window.addEventListener('cartUpdated', handleCartUpdate as EventListener)

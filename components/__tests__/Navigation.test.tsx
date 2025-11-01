@@ -19,11 +19,11 @@ describe('Navigation', () => {
   it('renders all navigation links on desktop', () => {
     render(<Navigation />)
     
-    expect(screen.getByText('Paradox Library')).toBeInTheDocument()
-    expect(screen.getByText('Daily Curiosity')).toBeInTheDocument()
-    expect(screen.getByText('Interactive Tools')).toBeInTheDocument()
-    expect(screen.getByText('Weekly Puzzles')).toBeInTheDocument()
-    expect(screen.getByText('Shop')).toBeInTheDocument()
+    expect(screen.getByText('Paradoxes')).toBeInTheDocument()
+    expect(screen.getByText('Articles')).toBeInTheDocument()
+    expect(screen.getByText('Research')).toBeInTheDocument()
+    expect(screen.getByText('Tools')).toBeInTheDocument()
+    expect(screen.getByText('Puzzles')).toBeInTheDocument()
   })
 
   it('toggles mobile menu when hamburger button is clicked', () => {
@@ -59,10 +59,9 @@ describe('Navigation', () => {
     
     expect(hrefs).toContain('/')
     expect(hrefs).toContain('/paradoxes')
+    expect(hrefs).toContain('/articles')
     expect(hrefs).toContain('/curiosity')
     expect(hrefs).toContain('/tools')
     expect(hrefs).toContain('/puzzles')
-    expect(hrefs).toContain('/shop')
   })
 })
-

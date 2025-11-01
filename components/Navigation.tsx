@@ -15,24 +15,24 @@ export default function Navigation() {
   }
 
   const navLinks = [
-    { href: '/paradoxes', label: 'Paradox Library' },
+    { href: '/paradoxes', label: 'Paradoxes' },
     { href: '/articles', label: 'Articles' },
-    { href: '/curiosity', label: 'Daily Curiosity' },
-    { href: '/tools', label: 'Interactive Tools' },
-    { href: '/puzzles', label: 'Weekly Puzzles' },
+    { href: '/curiosity', label: 'Research' },
+    { href: '/tools', label: 'Tools' },
+    { href: '/puzzles', label: 'Puzzles' },
   ]
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-gray-200/50 backdrop-blur-xl bg-white/95 shadow-sm" aria-label="Site navigation">
+    <nav className="sticky top-0 z-50 border-b-2 border-gray-300 backdrop-blur-xl bg-white/95 shadow-lg" aria-label="Site navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div className="relative w-10 h-10 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 rounded-xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-300 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-accent-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative text-white font-bold text-lg drop-shadow-sm">SC</span>
               <div className="absolute inset-0 border border-accent-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className="font-bold text-2xl text-gray-900 group-hover:text-primary-700 transition-colors duration-300">
+            <span className="font-black text-2xl text-gray-900 group-hover:text-primary-700 transition-colors duration-300">
               Schrödinger&apos;s Cat
             </span>
           </Link>

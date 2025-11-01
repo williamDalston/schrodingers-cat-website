@@ -140,14 +140,14 @@ export default function PuzzlesPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex p-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="inline-flex p-5 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mb-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
             <PuzzlePieceIcon className="h-12 w-12 text-white" />
           </motion.div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 tracking-tight">
             Weekly Puzzles
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-medium">
             Challenge your mind with weekly science puzzles. Track your progress and unlock achievements.
           </p>
         </header>
@@ -156,7 +156,7 @@ export default function PuzzlesPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="card overflow-hidden shadow-sm"
+          className="card overflow-hidden shadow-lg"
         >
           {/* Header */}
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white">

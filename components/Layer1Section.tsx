@@ -13,21 +13,21 @@ const features = [
   {
     icon: BookOpenIcon,
     title: 'Paradox Library',
-    description: 'Dive into mind-bending paradoxes that challenge how you think about reality, time, and existence.',
+    description: 'Examine fundamental paradoxes that probe the nature of reality, causality, and logical consistency.',
     href: '/paradoxes',
     color: 'from-primary-500 to-primary-600',
   },
   {
     icon: LightBulbIcon,
-    title: 'Daily Curiosity',
-    description: 'Get your daily dose of fascinating science facts, thought experiments, and awe-inspiring discoveries.',
+    title: 'Research Insights',
+    description: 'Access scholarly analysis of quantum mechanics, consciousness research, and philosophical inquiry.',
     href: '/curiosity',
     color: 'from-accent-500 to-accent-600',
   },
   {
     icon: BeakerIcon,
-    title: 'Interactive Tools',
-    description: 'Experiment with physics simulations, visualizations, and hands-on learning experiences.',
+    title: 'Interactive Analysis',
+    description: 'Explore quantum simulations and philosophical thought experiments through interactive tools.',
     href: '/tools',
     color: 'from-tertiary-500 to-tertiary-600',
   },
@@ -35,7 +35,7 @@ const features = [
 
 export default function Layer1Section() {
   return (
-    <section className="py-32 bg-gradient-to-b from-white via-primary-50/30 to-accent-50/30 relative overflow-hidden perspective-container">
+    <section className="py-32 bg-gradient-to-b from-white via-blue-50/20 via-purple-50/20 to-pink-50/20 relative overflow-hidden perspective-container">
       {/* Decorative elements with 3D depth */}
       <div className="absolute inset-0 opacity-20 parallax-container">
         <div className="absolute top-10 left-10 w-96 h-96 bg-primary-400 rounded-full blur-3xl animate-float parallax-slow quantum-fluctuate"></div>
@@ -58,14 +58,16 @@ export default function Layer1Section() {
           >
             Research & Exploration
           </motion.span>
-          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-            <span className="block text-3d">Understanding Fundamental</span>
-            <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent text-3d quantum-wave">
+          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <span className="block text-3d mb-2">Understanding Fundamental</span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-3d quantum-wave bg-[length:200%_auto] animate-gradient">
               Questions
             </span>
           </h2>
-          <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Scholarly examination of paradoxes, consciousness theories, and thought experiments across physics, philosophy, and neuroscience.
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+            Scholarly examination of paradoxes, consciousness theories, and thought experiments across{' '}
+            <span className="font-medium">physics</span>, <span className="font-medium">philosophy</span>, and{' '}
+            <span className="font-medium">neuroscience</span>.
           </p>
         </motion.div>
 
@@ -81,7 +83,7 @@ export default function Layer1Section() {
             >
               <Link
                 href={feature.href}
-                className="group relative block h-full p-10 glass rounded-3xl border border-white/50 card-3d quantum-layer depth-shadow-2 transition-all duration-500 overflow-hidden"
+                className="group relative block h-full p-10 glass rounded-3xl border border-white/60 backdrop-blur-xl card-3d quantum-layer depth-shadow-2 transition-all duration-500 overflow-hidden hover:shadow-2xl hover:border-purple-200/50"
               >
                 {/* Shimmer effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>

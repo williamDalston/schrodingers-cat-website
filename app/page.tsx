@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 import Layer1Section from '@/components/Layer1Section'
 import Layer2Section from '@/components/Layer2Section'
-import Layer3Section from '@/components/Layer3Section'
 import NewsletterCTA from '@/components/NewsletterCTA'
 
 export const metadata: Metadata = {
@@ -67,7 +66,6 @@ export default function Home() {
       <Hero />
       <Layer1Section />
       <Layer2Section />
-      <Layer3Section />
       <NewsletterCTA />
     </div>
   )

@@ -37,7 +37,7 @@ const sampleProducts = [
 
 export default function Layer3Section() {
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-50 via-white to-primary-50/30 relative overflow-hidden perspective-container">
+    <section className="py-32 bg-gradient-to-b from-slate-50 via-white to-purple-50/20 relative overflow-hidden perspective-container">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-96 h-96 bg-primary-400 rounded-full blur-3xl animate-float"></div>
@@ -60,9 +60,9 @@ export default function Layer3Section() {
           >
             🛍️ Support What You Love
           </motion.span>
-          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-            <span className="block">Embedded</span>
-            <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <span className="block mb-2">Embedded</span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
               Shop
             </span>
           </h2>
@@ -134,7 +134,7 @@ export default function Layer3Section() {
         >
           <Link
             href="/shop"
-            className="group inline-flex items-center px-12 py-5 bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 text-white text-lg font-bold rounded-2xl shadow-2xl hover:shadow-primary-500/50 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden animate-gradient glow-border"
+            className="group inline-flex items-center px-12 py-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white text-lg font-bold rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-purple-500/50 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden animate-gradient glow-border"
           >
             <span className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
             <span className="relative flex items-center gap-2">

@@ -4,6 +4,7 @@ import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRightIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import QuantumWaveParticle from './QuantumWaveParticle'
 
 // Seeded random function for stable particle positions
 function seededRandom(seed: number) {
@@ -22,13 +23,13 @@ export default function Hero() {
       xOffset: (seededRandom(i * 5.1234) * 50 - 25),
       duration: seededRandom(i * 6.789) * 10 + 10,
       delay: seededRandom(i * 7.3456) * 5,
-      color: i % 2 === 0 ? 'rgba(59, 130, 246, 0.1)' : 'rgba(217, 70, 239, 0.1)',
+      color: i % 3 === 0 ? 'rgba(59, 130, 246, 0.08)' : i % 3 === 1 ? 'rgba(168, 85, 247, 0.08)' : 'rgba(236, 72, 153, 0.08)',
       depth: i % 3 === 0 ? 'depth-layer-2' : i % 3 === 1 ? 'depth-layer-3' : 'depth-layer-1',
     }))
   }, [])
   
   return (
-    <section className="relative min-h-screen sm:min-h-[90vh] flex items-center bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden particle-bg perspective-container py-20 sm:py-0">
+    <section className="relative min-h-screen sm:min-h-[90vh] flex items-center bg-gradient-to-br from-slate-50 via-white to-purple-50/30 overflow-hidden particle-bg perspective-container py-20 sm:py-0">
       {/* Animated floating orbs with 3D depth */}
       <div className="absolute inset-0 overflow-hidden">
         {floatingElements.map((element) => (
@@ -71,7 +72,7 @@ export default function Hero() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-20 left-20 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-gradient-to-br from-primary-400/30 to-accent-400/30 rounded-full blur-[80px] sm:blur-[100px] parallax-slow quantum-glow"
+          className="absolute top-20 left-20 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-gradient-to-br from-blue-400/25 via-purple-400/25 to-pink-400/25 rounded-full blur-[100px] sm:blur-[120px] parallax-slow quantum-glow"
         />
         <motion.div
           animate={{
@@ -85,7 +86,7 @@ export default function Hero() {
             ease: "easeInOut",
             delay: 1
           }}
-          className="absolute bottom-20 right-20 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-gradient-to-tr from-accent-400/30 to-primary-400/30 rounded-full blur-[100px] sm:blur-[120px] parallax-medium quantum-glow"
+          className="absolute bottom-20 right-20 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-gradient-to-tr from-purple-400/25 via-pink-400/25 to-blue-400/25 rounded-full blur-[120px] sm:blur-[140px] parallax-medium quantum-glow"
         />
       </div>
 
@@ -101,10 +102,15 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8 inline-flex items-center gap-2 glass px-6 py-3 rounded-full depth-shadow-2 quantum-layer depth-layer-3"
+            className="mb-10 inline-flex items-center gap-3 glass px-8 py-4 rounded-full depth-shadow-2 quantum-layer depth-layer-3 border border-white/80 backdrop-blur-xl"
           >
-            <SparklesIcon className="h-5 w-5 text-primary-600" aria-hidden="true" />
-            <span className="text-sm font-semibold text-gray-700">
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+            >
+              <SparklesIcon className="h-5 w-5 text-blue-600" aria-hidden="true" />
+            </motion.div>
+            <span className="text-sm font-semibold bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
               Quantum Mechanics & Consciousness Research
             </span>
           </motion.div>
@@ -114,14 +120,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-10 leading-[1.1] tracking-tight"
           >
-            <span className="block text-gray-900 mb-2">Exploring the Nature of</span>
+            <span className="block text-gray-900 mb-3 drop-shadow-sm">Exploring the Nature of</span>
             <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="block bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 bg-clip-text text-transparent"
+              transition={{ duration: 0.8, delay: 0.5, type: "spring", stiffness: 100 }}
+              className="block bg-gradient-to-r from-blue-600 via-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]"
             >
               Consciousness & Reality
             </motion.span>
@@ -132,9 +138,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-14 max-w-4xl mx-auto leading-relaxed font-light"
           >
-            Deep exploration of quantum consciousness theories, fundamental paradoxes, and the intersection of physics, philosophy, and neuroscience.
+            Deep exploration of quantum consciousness theories, fundamental paradoxes, and the intersection of{' '}
+            <span className="font-medium text-gray-700">physics</span>,{' '}
+            <span className="font-medium text-gray-700">philosophy</span>, and{' '}
+            <span className="font-medium text-gray-700">neuroscience</span>.
           </motion.p>
 
           {/* CTA buttons with 3D depth effects */}
@@ -146,11 +155,11 @@ export default function Hero() {
           >
             <Link
               href="/paradoxes"
-              className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 text-white text-lg font-bold rounded-2xl depth-shadow-3 btn-3d quantum-glow overflow-hidden animate-gradient glow-border"
+              className="group relative inline-flex items-center px-12 py-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white text-lg font-bold rounded-2xl depth-shadow-3 btn-3d quantum-glow overflow-hidden animate-gradient glow-border hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300"
             >
-              <span className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
-              <span className="relative flex items-center gap-2">
-                Start Exploring
+              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+              <span className="relative flex items-center gap-3">
+                Explore Articles
                 <motion.div
                   animate={{ x: [0, 4, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
@@ -161,10 +170,13 @@ export default function Hero() {
             </Link>
             <Link
               href="/curiosity"
-              className="group relative inline-flex items-center px-10 py-5 glass text-gray-900 text-lg font-bold rounded-2xl border-2 border-transparent hover:border-primary-300 depth-shadow-2 btn-3d quantum-layer transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center px-12 py-6 glass text-gray-900 text-lg font-bold rounded-2xl border-2 border-gray-200/80 hover:border-purple-300 depth-shadow-2 btn-3d quantum-layer transition-all duration-300 overflow-hidden backdrop-blur-xl hover:bg-white/95"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-primary-50/0 via-primary-50/50 to-primary-50/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-              <span className="relative z-10">Daily Curiosity</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-50/0 via-purple-50/60 to-purple-50/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
+              <span className="relative z-10 flex items-center gap-2">
+                Research Library
+                <ArrowRightIcon className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" aria-hidden="true" />
+              </span>
             </Link>
           </motion.div>
 
@@ -175,15 +187,15 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="mt-16 max-w-4xl mx-auto"
           >
-            <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3 text-center">
+            <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/40 hover:border-purple-200/50 transition-all duration-300">
+              <h3 className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-3 text-center">
                 Interactive: Wave-Particle Duality
               </h3>
-              <p className="text-sm text-gray-600 mb-4 text-center max-w-2xl mx-auto">
+              <p className="text-sm text-gray-600 mb-6 text-center max-w-2xl mx-auto leading-relaxed">
                 Move your cursor over the visualization to observe how quantum particles respond to observation, 
                 demonstrating the fundamental principle of wave-particle duality in quantum mechanics.
               </p>
-              <div className="relative">
+              <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-blue-50/50 to-purple-50/50 p-4">
                 <QuantumWaveParticle />
               </div>
             </div>

@@ -4,17 +4,18 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Analytics from '@/components/Analytics'
+import CatPawsGrip from '@/components/CatPawsGrip'
 import { Toaster } from 'react-hot-toast'
 import { CartProvider } from '@/lib/cart-context'
 import { ThemeProvider } from '@/lib/theme-context'
 
 export const metadata: Metadata = {
-  title: 'Schrödinger\'s Cat - Science Exploration & Curiosity',
-  description: 'Free exploration platform for science, paradoxes, and daily curiosity. Beautifully designed content with an embedded shop for science enthusiasts.',
-  keywords: 'science, paradoxes, curiosity, exploration, physics, philosophy, Tbilisi',
+  title: 'Schrödinger\'s Cat - Quantum Consciousness & Philosophy',
+  description: 'Deep exploration of quantum consciousness theories, fundamental paradoxes, and the intersection of physics, philosophy, and neuroscience.',
+  keywords: 'quantum mechanics, consciousness, philosophy of mind, paradoxes, IIT, many worlds, quantum physics, neuroscientific theories',
   openGraph: {
-    title: 'Schrödinger\'s Cat - Science Exploration & Curiosity',
-    description: 'Free exploration platform for science, paradoxes, and daily curiosity. Beautifully designed content with an embedded shop for science enthusiasts.',
+    title: 'Schrödinger\'s Cat - Quantum Consciousness & Philosophy',
+    description: 'Deep exploration of quantum consciousness theories, fundamental paradoxes, and the intersection of physics, philosophy, and neuroscience.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Schrödinger\'s Cat',
@@ -23,14 +24,14 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Schrödinger\'s Cat - Science Exploration Platform',
+        alt: 'Schrödinger\'s Cat - Quantum Consciousness Research',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Schrödinger\'s Cat - Science Exploration & Curiosity',
-    description: 'Free exploration platform for science, paradoxes, and daily curiosity.',
+    title: 'Schrödinger\'s Cat - Quantum Consciousness',
+    description: 'Exploring the intersection of quantum mechanics, consciousness, and the nature of reality.',
     images: ['/og-image.jpg'],
     creator: '@schrodingerscat',
   },
@@ -81,6 +82,7 @@ export default function RootLayout({
         </a>
         <ThemeProvider>
           <CartProvider>
+            <CatPawsGrip />
             <Navigation />
             <main id="main-content" className="min-h-screen">
               {children}

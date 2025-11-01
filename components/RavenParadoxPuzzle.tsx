@@ -189,7 +189,7 @@ export default function RavenParadoxPuzzle() {
                       ) : showAsFalsifying ? (
                         <XCircleIcon className="h-6 w-6 text-red-600" />
                       ) : (
-                        <div className="w-6 h-6 rounded-full bg-purple-400"></div>
+                        <div className="w-6 h-6 rounded-full bg-primary-400"></div>
                       )}
                     </div>
                   )}
@@ -211,7 +211,7 @@ export default function RavenParadoxPuzzle() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={checkAnswer}
-            className="w-full px-6 py-3 bg-gradient-to-r from-primary-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg transition-all"
+            className="w-full px-6 py-3 bg-gradient-to-r from-primary-600 to-tertiary-600 text-white font-bold rounded-lg hover:shadow-lg transition-all"
           >
             Check My Answer ({selectedEvidence.length} selected)
           </motion.button>
@@ -225,10 +225,10 @@ export default function RavenParadoxPuzzle() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mb-6 p-6 bg-white rounded-lg border-2 border-purple-300"
+            className="mb-6 p-6 bg-white rounded-lg border-2 border-primary-300"
           >
             <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <LightBulbIcon className="h-6 w-6 text-purple-600" />
+              <LightBulbIcon className="h-6 w-6 text-primary-600" />
               The Paradox Explained
             </h4>
 

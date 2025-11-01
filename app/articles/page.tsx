@@ -73,17 +73,17 @@ export default function ArticlesPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex p-5 gradient-primary rounded-2xl mb-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="inline-flex p-5 gradient-primary rounded-2xl mb-6 shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
             <BookOpenIcon className="h-12 w-12 text-white" />
           </motion.div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 tracking-tight">
             Quantum Consciousness Series
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4 font-light">
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-4">
             A deep dive into how quantum mechanics intersects with consciousness. Based on insights from philosopher Kelvin McQueen.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-600">
             <span className="badge-info">{publishedCount} Published</span>
             <span className="text-gray-400">•</span>
             <span className="badge">{totalCount} Total Articles</span>
@@ -109,9 +109,9 @@ export default function ArticlesPage() {
 
           {/* Category Filters */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="flex items-center gap-2 text-sm text-gray-700 font-semibold">
               <FunnelIcon className="h-5 w-5" />
-              <span className="font-medium">Filter:</span>
+              <span>Filter:</span>
             </div>
             <button
               onClick={() => setSelectedCategory('all')}
@@ -144,7 +144,7 @@ export default function ArticlesPage() {
         </div>
 
         {/* Results Count */}
-        <div className="mb-6 text-sm text-gray-600">
+        <div className="mb-6 text-sm text-gray-700 font-medium">
           Showing {filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''}
           {searchQuery && ` matching "${searchQuery}"`}
           {selectedCategory !== 'all' && ` in ${formatCategoryName(selectedCategory)}`}
@@ -186,7 +186,7 @@ export default function ArticlesPage() {
                         </span>
                       )}
                       {article.status === 'planned' && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">
+                        <span className="px-2 py-1 bg-gray-200 text-gray-800 text-xs font-bold rounded-full border border-gray-300">
                           Planned
                         </span>
                       )}
@@ -204,12 +204,12 @@ export default function ArticlesPage() {
                     </h2>
 
                     {/* Angle/Description */}
-                    <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                    <p className="text-gray-700 mb-4 leading-relaxed line-clamp-3 font-medium">
                       {article.angle}
                     </p>
 
                     {/* Meta Info */}
-                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4 font-medium">
                       <span className="flex items-center gap-1">
                         <ClockIcon className="h-4 w-4" />
                         {readingTime} min read
@@ -251,7 +251,7 @@ export default function ArticlesPage() {
           </div>
         ) : (
           <div className="text-center py-12 bg-white rounded-2xl border border-gray-200">
-            <p className="text-gray-600 text-lg">No articles found matching your criteria.</p>
+            <p className="text-gray-700 text-lg font-semibold">No articles found matching your criteria.</p>
             <button
               onClick={() => {
                 setSearchQuery('')

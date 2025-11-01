@@ -38,16 +38,27 @@ export default function ReadingProgress() {
     return () => unsubscribe()
   }, [scrollYProgress])
 
+  const progressPercent = scrollYProgress.get() * 100
+
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-gray-200">
+    <div 
+      className="fixed top-0 left-0 right-0 z-50 h-1 bg-gray-200"
+      role="progressbar"
+      aria-label="Reading progress"
+      aria-valuenow={Math.round(progressPercent)}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
       <motion.div
         className="h-full bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 origin-left"
         style={{ scaleX }}
+        aria-hidden="true"
       />
       <motion.div
         className="absolute top-1 right-4 bg-gray-900 text-white text-xs px-2 py-1 rounded shadow-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: scrollYProgress.get() > 0.05 && scrollYProgress.get() < 0.95 ? 1 : 0 }}
+        aria-hidden="true"
       >
         {readingTime.current} / {readingTime.total} min
       </motion.div>
