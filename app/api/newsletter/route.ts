@@ -83,12 +83,16 @@ export async function POST(request: NextRequest) {
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
     const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Schrödinger's Cat"
 
+    // Send notification to admin when someone subscribes
+    const adminEmail = 'faradaybach@gmail.com'
+    
     try {
       if (resend) {
+        // Send welcome email to subscriber
         await resend.emails.send({
-        from: `${siteName} <${fromEmail}>`,
-        to: email,
-        subject: 'Welcome to Daily Curiosity! 🧪',
+          from: `${siteName} <${fromEmail}>`,
+          to: email,
+          subject: 'Welcome to Daily Curiosity! 🧪',
         html: `
           <!DOCTYPE html>
           <html>
@@ -165,9 +169,56 @@ export async function POST(request: NextRequest) {
           </html>
         `,
         })
+
+        // Send notification to admin
+        await resend.emails.send({
+          from: `${siteName} <${fromEmail}>`,
+          to: adminEmail,
+          subject: '🎉 New Newsletter Subscription',
+          html: `
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <style>
+                  body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                  }
+                  .content {
+                    background: #f9fafb;
+                    padding: 30px;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                  }
+                  .info {
+                    background: #e0f2fe;
+                    padding: 15px;
+                    border-radius: 6px;
+                    margin: 15px 0;
+                  }
+                </style>
+              </head>
+              <body>
+                <div class="content">
+                  <h2>New Newsletter Subscriber! 🎉</h2>
+                  <div class="info">
+                    <p><strong>Email:</strong> ${email}</p>
+                    ${name ? `<p><strong>Name:</strong> ${name}</p>` : ''}
+                    <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+                  </div>
+                  <p>Total subscribers are stored in the Supabase database.</p>
+                </div>
+              </body>
+            </html>
+          `,
+        })
       }
     } catch (emailError) {
-      console.error('Error sending welcome email:', emailError)
+      console.error('Error sending email:', emailError)
       // Don't fail the subscription if email fails
     }
 
