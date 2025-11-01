@@ -3,14 +3,16 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Bars3Icon, XMarkIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
-import { useCart } from '@/lib/cart-context'
-import CartSidebar from './CartSidebar'
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { useTheme } from '@/lib/theme-context'
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [cartOpen, setCartOpen] = useState(false)
-  const { cart } = useCart()
+  const { theme, setTheme, isDark } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
 
   const navLinks = [
     { href: '/paradoxes', label: 'Paradox Library' },
@@ -18,7 +20,6 @@ export default function Navigation() {
     { href: '/curiosity', label: 'Daily Curiosity' },
     { href: '/tools', label: 'Interactive Tools' },
     { href: '/puzzles', label: 'Weekly Puzzles' },
-    // { href: '/shop', label: 'Shop' }, // Temporarily hidden
   ]
 
   return (
@@ -26,10 +27,12 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-              <span className="text-white font-bold text-lg">SC</span>
+            <div className="relative w-10 h-10 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative text-white font-bold text-lg drop-shadow-sm">SC</span>
+              <div className="absolute inset-0 border border-accent-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className="font-bold text-2xl text-gray-900 group-hover:text-primary-600 transition-colors duration-300">
+            <span className="font-bold text-2xl text-gray-900 group-hover:text-primary-700 transition-colors duration-300">
               Schrödinger&apos;s Cat
             </span>
           </Link>
@@ -49,32 +52,27 @@ export default function Navigation() {
                 >
                   <span className="relative z-10">{link.label}</span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary-50 to-accent-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 depth-shadow-1"
+                    className="absolute inset-0 bg-gradient-to-r from-primary-50 to-tertiary-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 depth-shadow-1"
                     layoutId="nav-indicator"
                   />
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-600 via-accent-500 to-tertiary-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                     initial={false}
                   />
                 </Link>
               </motion.div>
             ))}
             <motion.button
-              onClick={() => setCartOpen(true)}
+              onClick={toggleTheme}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="relative ml-4 p-2.5 text-gray-700 hover:text-primary-600 transition-all duration-300 rounded-lg group quantum-layer"
-              aria-label="Shopping cart"
+              className="ml-4 p-2.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 rounded-lg"
+              aria-label="Toggle dark mode"
             >
-              <ShoppingBagIcon className="h-6 w-6" />
-              {cart.itemCount > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-lg ring-2 ring-white"
-                >
-                  {cart.itemCount > 9 ? '9+' : cart.itemCount}
-                </motion.span>
+              {isDark ? (
+                <SunIcon className="h-6 w-6" />
+              ) : (
+                <MoonIcon className="h-6 w-6" />
               )}
             </motion.button>
           </nav>
@@ -108,18 +106,17 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
+            
+            {/* Theme Toggle */}
             <button
-              onClick={() => {
-                setMobileMenuOpen(false)
-                setCartOpen(true)
-              }}
-              className="flex items-center justify-between w-full px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-white/50 rounded-lg transition-all duration-300 font-medium"
+              onClick={toggleTheme}
+              className="w-full px-4 py-3 flex items-center justify-between text-gray-700 hover:text-primary-600 hover:bg-white/50 rounded-lg transition-all duration-300 font-medium"
             >
-              <span>Shopping Cart</span>
-              {cart.itemCount > 0 && (
-                <span className="bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                  {cart.itemCount > 9 ? '9+' : cart.itemCount}
-                </span>
+              <span>Dark Mode</span>
+              {isDark ? (
+                <SunIcon className="h-5 w-5" />
+              ) : (
+                <MoonIcon className="h-5 w-5" />
               )}
             </button>
             
@@ -151,8 +148,6 @@ export default function Navigation() {
           </div>
         )}
       </div>
-      <CartSidebar isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </nav>
   )
 }
-

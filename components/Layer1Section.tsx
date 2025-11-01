@@ -29,7 +29,7 @@ const features = [
     title: 'Interactive Tools',
     description: 'Experiment with physics simulations, visualizations, and hands-on learning experiences.',
     href: '/tools',
-    color: 'from-purple-500 to-purple-600',
+    color: 'from-tertiary-500 to-tertiary-600',
   },
 ]
 

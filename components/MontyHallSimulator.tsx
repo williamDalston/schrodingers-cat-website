@@ -144,7 +144,7 @@ export default function MontyHallSimulator() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6 p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-2 border-primary-200 shadow-sm"
+          className="mb-6 p-4 bg-gradient-to-br from-primary-50 to-tertiary-50 rounded-lg border-2 border-primary-200 shadow-sm"
         >
           <div className="grid grid-cols-2 gap-4 text-sm mb-3">
             <div className="p-3 bg-white rounded-lg border-2 border-green-300">

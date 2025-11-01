@@ -48,9 +48,10 @@ export default function AboutPage() {
 
             <h2 className="text-3xl font-bold text-gray-900 mt-8 mb-4 tracking-tight">Built in Tbilisi</h2>
             <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-              Born from the digital nomad community in Georgia, we understand the challenges and opportunities 
-              of building something meaningful while exploring the world. This platform is our contribution 
-              to making science education more accessible and beautiful.
+              Schrödinger&apos;s Cat began as a beloved cafe in the heart of Tbilisi, a gathering place for curious minds 
+              and coffee lovers. Today, we&apos;ve transformed into something new—an exploration platform that carries forward 
+              the spirit of curiosity and community that made our cafe special. While we&apos;re offering something different now, 
+              we remain committed to fostering the same sense of wonder and connection that brought people together around our tables.
             </p>
 
             <h2 className="text-3xl font-bold text-gray-900 mt-8 mb-4 tracking-tight">The Philosophy</h2>

@@ -41,7 +41,7 @@ export function OlbersParadoxInteractive() {
   return (
     <div 
       className={`w-full h-96 rounded-2xl overflow-hidden shadow-xl relative transition-colors duration-1000 ${
-        nightMode ? 'bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900' : 'bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500'
+        nightMode ? 'bg-gradient-to-br from-primary-900 via-accent-900 to-gray-900' : 'bg-gradient-to-br from-primary-400 via-accent-500 to-tertiary-500'
       }`}
     >
       {/* Universe label */}

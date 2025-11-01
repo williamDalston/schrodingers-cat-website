@@ -1,0 +1,53 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
+
+export default function ReadingProgress() {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  })
+
+  const [readingTime, setReadingTime] = useState({ current: 0, total: 5 })
+
+  useEffect(() => {
+    // Calculate reading time based on content length
+    const content = document.querySelector('article, main')
+    if (content) {
+      const text = content.textContent || ''
+      const wordsPerMinute = 200
+      const total = Math.ceil(text.split(/\s+/).length / wordsPerMinute)
+      setReadingTime(prev => ({ ...prev, total }))
+    }
+
+    // Update current reading time based on scroll
+    const updateReadingTime = () => {
+      const progress = scrollYProgress.get()
+      const current = Math.floor(progress * readingTime.total)
+      setReadingTime(prev => ({ ...prev, current }))
+    }
+
+    const unsubscribe = scrollYProgress.on('change', updateReadingTime)
+    return () => unsubscribe()
+  }, [scrollYProgress, readingTime.total])
+
+  return (
+    <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-gray-200">
+      <motion.div
+        className="h-full bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 origin-left"
+        style={{ scaleX }}
+      />
+      <motion.div
+        className="absolute top-1 right-4 bg-gray-900 text-white text-xs px-2 py-1 rounded shadow-lg"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: scrollYProgress.get() > 0.05 && scrollYProgress.get() < 0.95 ? 1 : 0 }}
+      >
+        {readingTime.current} / {readingTime.total} min
+      </motion.div>
+    </div>
+  )
+}
+

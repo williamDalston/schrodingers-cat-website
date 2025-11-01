@@ -6,19 +6,19 @@ import Layer3Section from '@/components/Layer3Section'
 import NewsletterCTA from '@/components/NewsletterCTA'
 
 export const metadata: Metadata = {
-  title: 'Schrödinger\'s Cat - Free Science Exploration & Curiosity Platform',
-  description: 'Explore mind-bending paradoxes, daily curiosities, and interactive science tools. Beautifully designed content with Tbilisi soul. Free forever.',
-  keywords: ['science', 'paradoxes', 'quantum mechanics', 'thought experiments', 'philosophy', 'physics', 'curiosity', 'education', 'Tbilisi'],
+  title: 'Schrödinger\'s Cat - Science, Philosophy & Quantum Mechanics',
+  description: 'Explore fundamental paradoxes, quantum consciousness theories, and thought experiments. Scholarly content on physics, philosophy, and the nature of reality.',
+  keywords: ['quantum mechanics', 'consciousness', 'philosophy of mind', 'paradoxes', 'quantum physics', 'thought experiments', 'physics', 'neuroscience', 'IIT', 'many worlds'],
   openGraph: {
-    title: 'Schrödinger\'s Cat - Science Exploration Platform',
-    description: 'Free exploration platform for science, paradoxes, and daily curiosity. Beautifully designed content with an embedded shop.',
+    title: 'Schrödinger\'s Cat - Quantum Consciousness & Philosophy',
+    description: 'Deep exploration of quantum mechanics, consciousness theories, and fundamental paradoxes in physics and philosophy.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Schrödinger\'s Cat - Science Exploration',
-    description: 'Explore mind-bending paradoxes and daily curiosities. Free forever.',
+    title: 'Schrödinger\'s Cat - Quantum Consciousness',
+    description: 'Exploring the intersection of quantum mechanics, consciousness, and the nature of reality.',
   },
 }
 

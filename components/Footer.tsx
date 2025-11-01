@@ -18,18 +18,18 @@ export default function Footer() {
               </div>
               <span className="font-bold text-2xl text-white">Schrödinger&apos;s Cat</span>
             </div>
-            <p className="text-gray-300 text-lg max-w-md leading-relaxed">
+            <p className="text-gray-300 dark:text-gray-400 text-lg max-w-md leading-relaxed">
               A free exploration platform for science, paradoxes, and daily curiosity. 
               Beautifully designed content with Tbilisi soul.
             </p>
             <div className="flex flex-wrap gap-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <span className="text-2xl">✨</span>
-                <span className="text-sm font-medium text-gray-300">100% Free</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg border border-white/10 dark:border-gray-700/50">
+                <span className="text-2xl" aria-hidden="true">✨</span>
+                <span className="text-sm font-medium text-gray-300 dark:text-gray-400">100% Free</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <span className="text-2xl">🌍</span>
-                <span className="text-sm font-medium text-gray-300">Made in Tbilisi</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg border border-white/10 dark:border-gray-700/50">
+                <span className="text-2xl" aria-hidden="true">🌍</span>
+                <span className="text-sm font-medium text-gray-300 dark:text-gray-400">Made in Tbilisi</span>
               </div>
             </div>
             
@@ -64,26 +64,26 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-6 text-lg">Explore</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/paradoxes" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                <Link href="/paradoxes" className="text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200 flex items-center group focus-ring rounded" aria-label="Navigate to Paradox Library">
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200" aria-hidden="true"></span>
                   Paradox Library
                 </Link>
               </li>
               <li>
-                <Link href="/curiosity" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                <Link href="/curiosity" className="text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200 flex items-center group focus-ring rounded" aria-label="Navigate to Daily Curiosity">
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200" aria-hidden="true"></span>
                   Daily Curiosity
                 </Link>
               </li>
               <li>
-                <Link href="/tools" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                <Link href="/tools" className="text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200 flex items-center group focus-ring rounded" aria-label="Navigate to Interactive Tools">
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200" aria-hidden="true"></span>
                   Interactive Tools
                 </Link>
               </li>
               <li>
-                <Link href="/puzzles" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                <Link href="/puzzles" className="text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200 flex items-center group focus-ring rounded" aria-label="Navigate to Weekly Puzzles">
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-200" aria-hidden="true"></span>
                   Weekly Puzzles
                 </Link>
               </li>
@@ -94,20 +94,14 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-6 text-lg">Connect</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/shop" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-accent-500 mr-0 group-hover:mr-2 transition-all duration-200"></span>
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-accent-500 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                <Link href="/about" className="text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200 flex items-center group focus-ring rounded" aria-label="Navigate to About">
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-accent-500 mr-0 group-hover:mr-2 transition-all duration-200" aria-hidden="true"></span>
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/newsletter" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-accent-500 mr-0 group-hover:mr-2 transition-all duration-200"></span>
+                <Link href="/newsletter" className="text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200 flex items-center group focus-ring rounded" aria-label="Navigate to Newsletter">
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-accent-500 mr-0 group-hover:mr-2 transition-all duration-200" aria-hidden="true"></span>
                   Newsletter
                 </Link>
               </li>
@@ -115,17 +109,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-gray-700">
+        <div className="pt-8 border-t border-gray-700 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-300 text-sm text-center md:text-left">
-              &copy; {new Date().getFullYear()} Schrödinger&apos;s Cat. Built with curiosity and ❤️ in Tbilisi.
+            <p className="text-gray-300 dark:text-gray-400 text-sm text-center md:text-left">
+              &copy; {new Date().getFullYear()} Schrödinger&apos;s Cat. Built with curiosity and <span aria-label="love">❤️</span> in Tbilisi.
             </p>
             <div className="flex items-center gap-6 text-sm">
-              <Link href="/sitemap" className="text-gray-300 hover:text-white transition-colors duration-200">
+              <Link href="/sitemap" className="text-gray-300 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200 focus-ring rounded" aria-label="View sitemap">
                 Sitemap
               </Link>
-              <span className="text-gray-500">•</span>
-              <span className="text-gray-300">All content free forever</span>
+              <span className="text-gray-500 dark:text-gray-600" aria-hidden="true">•</span>
+              <span className="text-gray-300 dark:text-gray-400">All content free forever</span>
             </div>
           </div>
         </div>

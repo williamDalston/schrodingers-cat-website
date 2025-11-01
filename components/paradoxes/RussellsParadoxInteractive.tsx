@@ -36,7 +36,7 @@ export function RussellsParadoxInteractive() {
   }
 
   return (
-    <div className="w-full h-96 bg-gradient-to-br from-purple-500 via-accent-500 to-primary-500 rounded-2xl overflow-hidden shadow-xl relative">
+    <div className="w-full h-96 bg-gradient-to-br from-primary-500 via-accent-500 to-tertiary-500 rounded-2xl overflow-hidden shadow-xl relative">
       {/* Mode label */}
       <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full z-10">
         <span className="text-white font-semibold text-sm">

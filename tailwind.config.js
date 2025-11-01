@@ -68,8 +68,8 @@ module.exports = {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
-          '100%': { boxShadow: '0 0 40px rgba(217, 70, 239, 0.8)' },
+          '0%': { boxShadow: '0 0 20px rgba(22, 163, 74, 0.5)' },
+          '100%': { boxShadow: '0 0 40px rgba(245, 158, 11, 0.8)' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-1000px 0' },
@@ -100,9 +100,9 @@ module.exports = {
         '4xl': '2rem',
       },
       boxShadow: {
-        'glow-sm': '0 0 10px rgba(2, 132, 199, 0.2)',
-        'glow-md': '0 0 20px rgba(2, 132, 199, 0.3)',
-        'glow-lg': '0 0 30px rgba(2, 132, 199, 0.4)',
+        'glow-sm': '0 0 10px rgba(22, 163, 74, 0.2)',
+        'glow-md': '0 0 20px rgba(22, 163, 74, 0.3)',
+        'glow-lg': '0 0 30px rgba(22, 163, 74, 0.4)',
       },
     },
   },
