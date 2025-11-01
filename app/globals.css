@@ -489,21 +489,22 @@ button:active, a:active, [role="button"]:active {
 
 /* Cat Paws Grip Effect */
 :root {
-  --paw-size: 180px;
-  --arm-length: 260px;
-  --paw-max-inset: 44px;
-  --paw-max-drop-shadow: 18px;
+  --paw-size: 100px;
+  --arm-length: 140px;
+  --paw-max-inset: 24px;
+  --paw-max-drop-shadow: 10px;
   --paw-perspective: 900px;
   --paw-tilt-max: 10deg;
   --paw-grip-squeeze: 1.06;
-  --paw-edge-shadow-max: 0.35;
-  --paw-z-index: 9999;
+  --paw-edge-shadow-max: 0.25;
+  --paw-z-index: 40;
+  --paw-opacity: 0.25;
 }
 
 .edge-shadow {
   position: fixed;
   inset: 0 auto 0 0;
-  width: 56px;
+  width: 32px;
   pointer-events: none;
   z-index: var(--paw-z-index);
   background: linear-gradient(
@@ -512,7 +513,7 @@ button:active, a:active, [role="button"]:active {
     transparent 70%
   );
   mix-blend-mode: multiply;
-  opacity: 0.8;
+  opacity: 0.4;
   transition: opacity 0.25s ease;
 }
 
@@ -541,7 +542,9 @@ button:active, a:active, [role="button"]:active {
   height: calc(var(--paw-size) + var(--arm-length));
   transform-origin: center top;
   will-change: transform, filter;
-  filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.18));
+  opacity: var(--paw-opacity);
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.12));
+  transition: opacity 0.3s ease;
 }
 
 .paw svg,
@@ -553,12 +556,18 @@ button:active, a:active, [role="button"]:active {
 
 .paw.left {
   left: 0;
-  transform: translate3d(-40px, -30px, 0) rotateY(-8deg) rotateZ(-8deg);
+  transform: translate3d(-20px, -60px, 0) rotateY(-8deg) rotateZ(-8deg);
 }
 
 .paw.right {
   right: 0;
-  transform: translate3d(40px, -30px, 0) rotateY(8deg) rotateZ(8deg) scaleX(-1);
+  transform: translate3d(20px, -60px, 0) rotateY(8deg) rotateZ(8deg) scaleX(-1);
+}
+
+/* Independent movement for arm and paw groups */
+.paw g {
+  transform-origin: center;
+  transition: transform 0.15s ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {

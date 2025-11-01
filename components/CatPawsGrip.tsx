@@ -19,6 +19,10 @@ export default function CatPawsGrip({
 }: CatPawsGripProps) {
   const pawLeftRef = useRef<HTMLDivElement>(null)
   const pawRightRef = useRef<HTMLDivElement>(null)
+  const armLeftRef = useRef<SVGGElement>(null)
+  const armRightRef = useRef<SVGGElement>(null)
+  const pawGroupLeftRef = useRef<SVGGElement>(null)
+  const pawGroupRightRef = useRef<SVGGElement>(null)
   const edgeLeftRef = useRef<HTMLDivElement>(null)
   const edgeRightRef = useRef<HTMLDivElement>(null)
   const rafIdRef = useRef<number>()
@@ -33,6 +37,10 @@ export default function CatPawsGrip({
 
     const left = pawLeftRef.current
     const right = pawRightRef.current
+    const armL = armLeftRef.current
+    const armR = armRightRef.current
+    const pawGroupL = pawGroupLeftRef.current
+    const pawGroupR = pawGroupRightRef.current
     const edgeL = edgeLeftRef.current
     const edgeR = edgeRightRef.current
 
@@ -93,14 +101,28 @@ export default function CatPawsGrip({
       const tiltMax = getVar('--paw-tilt-max', 10)
       const edgeShadowMax = getVar('--paw-edge-shadow-max', 0.35)
 
+      // Enhanced vertical movement (lift up and down more)
+      const verticalLift = (v: number) => {
+        // Create a wave-like motion: lift up at top, down in middle, up at bottom
+        const wave = Math.sin(v * Math.PI * 2) * 0.5 + 0.5 // 0 to 1 wave
+        return lerp(-80, 150, v) + (wave * 40 - 20) // More vertical range
+      }
+      
       const inward = (v: number) => lerp(0, maxInset, v)
-      const down = (v: number) => lerp(-30, 110, v)
-      const yaw = clamp(vy * 0.08, -1, 1)
-      const roll = (v: number) => lerp(-8, 6, v)
-
+      const yaw = clamp(vy * 0.1, -1.5, 1.5) // Slightly more responsive
+      const armRoll = (v: number) => lerp(-8, 6, v)
+      
+      // Arm moves more with scroll, paw moves more independently
+      const armVertical = verticalLift(vt)
+      const pawVerticalOffset = lerp(-15, 25, vt) + (Math.sin(vt * Math.PI * 3) * 8) // Independent paw movement
+      
+      // Paw rotation independent from arm (for realistic "flop")
+      const pawRotation = lerp(-5, 8, vt) + (grip * 10) // Paw rotates more when gripping
+      const armRotation = armRoll(vt)
+      
       const squeeze = lerp(1, gripSqueeze, grip)
       const shadowPx = lerp(
-        12,
+        8,
         maxShadow,
         clamp(vt * 0.8 + grip * 0.7, 0, 1)
       )
@@ -108,23 +130,45 @@ export default function CatPawsGrip({
         ? lerp(0, edgeShadowMax, clamp(vt * 0.6 + grip * 0.9, 0, 1))
         : 0
 
-      // Apply transforms to left paw
+      // Apply transforms to left container (arm movement)
       if (left) {
-        left.style.transform = `translate3d(${-inward(vt)}px, ${down(vt)}px, 0)
+        left.style.transform = `translate3d(${-inward(vt)}px, ${armVertical}px, 0)
           rotateY(${clamp(-8 - yaw, -tiltMax, 0)}deg)
-          rotateZ(${roll(vt)}deg)
-          scale(${squeeze})`
-        left.style.filter = `drop-shadow(0 ${shadowPx}px ${shadowPx * 0.7}px rgba(0,0,0,.22))`
+          rotateZ(${armRotation}deg)`
+        left.style.filter = `drop-shadow(0 ${shadowPx}px ${shadowPx * 0.7}px rgba(0,0,0,.15))`
+      }
+      
+      // Apply independent transform to left arm group
+      if (armL) {
+        const armTilt = lerp(0, 5, vt)
+        armL.style.transform = `rotate(${armTilt}deg)`
+      }
+      
+      // Apply independent transform to left paw group (more movement)
+      if (pawGroupL) {
+        const pawX = Math.sin(vt * Math.PI * 2) * 3 // Side-to-side wobble
+        pawGroupL.style.transform = `translate(${pawX}px, ${pawVerticalOffset}px) rotate(${pawRotation}deg) scale(${squeeze})`
       }
 
-      // Apply transforms to right paw (mirrored)
+      // Apply transforms to right container (mirrored)
       if (right) {
-        right.style.transform = `translate3d(${inward(vt)}px, ${down(vt)}px, 0)
+        right.style.transform = `translate3d(${inward(vt)}px, ${armVertical}px, 0)
           rotateY(${clamp(8 + yaw, 0, tiltMax)}deg)
-          rotateZ(${-roll(vt)}deg)
-          scaleX(-1)
-          scale(${squeeze})`
-        right.style.filter = `drop-shadow(0 ${shadowPx}px ${shadowPx * 0.7}px rgba(0,0,0,.22))`
+          rotateZ(${-armRotation}deg)
+          scaleX(-1)`
+        right.style.filter = `drop-shadow(0 ${shadowPx}px ${shadowPx * 0.7}px rgba(0,0,0,.15))`
+      }
+      
+      // Apply independent transform to right arm group
+      if (armR) {
+        const armTilt = lerp(0, -5, vt)
+        armR.style.transform = `rotate(${armTilt}deg) scaleX(-1)`
+      }
+      
+      // Apply independent transform to right paw group
+      if (pawGroupR) {
+        const pawX = Math.sin(vt * Math.PI * 2) * -3 // Opposite side-to-side wobble
+        pawGroupR.style.transform = `translate(${pawX}px, ${pawVerticalOffset}px) rotate(${-pawRotation}deg) scaleX(-1) scale(${squeeze})`
       }
 
       // Edge shadows
@@ -182,40 +226,49 @@ export default function CatPawsGrip({
                 <stop offset="100%" stopColor="#c4b5a6" />
               </linearGradient>
             </defs>
-            {/* Arm */}
-            <path
-              d="M110 0 C60 110, 60 250, 120 370 L230 370 C260 260, 260 130, 220 0 Z"
-              fill="url(#furL)"
-            />
-            {/* Paw palm */}
-            <ellipse
-              cx="175"
-              cy="340"
-              rx="70"
-              ry="54"
-              fill="#f4ede7"
-              stroke="#a89b8f"
-              strokeWidth="4"
-            />
-            {/* Pads - using theme colors */}
-            <ellipse cx="175" cy="350" rx="46" ry="36" fill="#22c55e" opacity="0.85" />
-            <circle cx="140" cy="310" r="16" fill="#f59e0b" opacity="0.9" />
-            <circle cx="210" cy="310" r="16" fill="#f59e0b" opacity="0.9" />
-            <circle cx="155" cy="295" r="12" fill="#2563eb" opacity="0.85" />
-            <circle cx="195" cy="295" r="12" fill="#2563eb" opacity="0.85" />
-            {/* Claws */}
-            <path
-              d="M120 355 l-8 16"
-              stroke="#8b7d6f"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-            <path
-              d="M230 355 l8 16"
-              stroke="#8b7d6f"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
+            {/* Arm - separate group for independent movement */}
+            <g ref={armLeftRef} transform-origin="175 185">
+              <path
+                d="M110 0 C60 110, 60 250, 120 370 L230 370 C260 260, 260 130, 220 0 Z"
+                fill="url(#furL)"
+                opacity="0.4"
+              />
+            </g>
+            {/* Paw - separate group for independent movement */}
+            <g ref={pawGroupLeftRef} transform-origin="175 340">
+              {/* Paw palm */}
+              <ellipse
+                cx="175"
+                cy="340"
+                rx="70"
+                ry="54"
+                fill="#f4ede7"
+                stroke="#a89b8f"
+                strokeWidth="3"
+                opacity="0.4"
+              />
+              {/* Pads - using theme colors */}
+              <ellipse cx="175" cy="350" rx="46" ry="36" fill="#22c55e" opacity="0.3" />
+              <circle cx="140" cy="310" r="16" fill="#f59e0b" opacity="0.35" />
+              <circle cx="210" cy="310" r="16" fill="#f59e0b" opacity="0.35" />
+              <circle cx="155" cy="295" r="12" fill="#2563eb" opacity="0.3" />
+              <circle cx="195" cy="295" r="12" fill="#2563eb" opacity="0.3" />
+              {/* Claws */}
+              <path
+                d="M120 355 l-8 16"
+                stroke="#8b7d6f"
+                strokeWidth="3"
+                strokeLinecap="round"
+                opacity="0.4"
+              />
+              <path
+                d="M230 355 l8 16"
+                stroke="#8b7d6f"
+                strokeWidth="3"
+                strokeLinecap="round"
+                opacity="0.4"
+              />
+            </g>
           </svg>
         </div>
 
@@ -228,36 +281,46 @@ export default function CatPawsGrip({
                 <stop offset="100%" stopColor="#c4b5a6" />
               </linearGradient>
             </defs>
-            <path
-              d="M110 0 C60 110, 60 250, 120 370 L230 370 C260 260, 260 130, 220 0 Z"
-              fill="url(#furR)"
-            />
-            <ellipse
-              cx="175"
-              cy="340"
-              rx="70"
-              ry="54"
-              fill="#f4ede7"
-              stroke="#a89b8f"
-              strokeWidth="4"
-            />
-            <ellipse cx="175" cy="350" rx="46" ry="36" fill="#22c55e" opacity="0.85" />
-            <circle cx="140" cy="310" r="16" fill="#f59e0b" opacity="0.9" />
-            <circle cx="210" cy="310" r="16" fill="#f59e0b" opacity="0.9" />
-            <circle cx="155" cy="295" r="12" fill="#2563eb" opacity="0.85" />
-            <circle cx="195" cy="295" r="12" fill="#2563eb" opacity="0.85" />
-            <path
-              d="M120 355 l-8 16"
-              stroke="#8b7d6f"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-            <path
-              d="M230 355 l8 16"
-              stroke="#8b7d6f"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
+            {/* Arm - separate group for independent movement */}
+            <g ref={armRightRef} transform-origin="175 185">
+              <path
+                d="M110 0 C60 110, 60 250, 120 370 L230 370 C260 260, 260 130, 220 0 Z"
+                fill="url(#furR)"
+                opacity="0.4"
+              />
+            </g>
+            {/* Paw - separate group for independent movement */}
+            <g ref={pawGroupRightRef} transform-origin="175 340">
+              <ellipse
+                cx="175"
+                cy="340"
+                rx="70"
+                ry="54"
+                fill="#f4ede7"
+                stroke="#a89b8f"
+                strokeWidth="3"
+                opacity="0.4"
+              />
+              <ellipse cx="175" cy="350" rx="46" ry="36" fill="#22c55e" opacity="0.3" />
+              <circle cx="140" cy="310" r="16" fill="#f59e0b" opacity="0.35" />
+              <circle cx="210" cy="310" r="16" fill="#f59e0b" opacity="0.35" />
+              <circle cx="155" cy="295" r="12" fill="#2563eb" opacity="0.3" />
+              <circle cx="195" cy="295" r="12" fill="#2563eb" opacity="0.3" />
+              <path
+                d="M120 355 l-8 16"
+                stroke="#8b7d6f"
+                strokeWidth="3"
+                strokeLinecap="round"
+                opacity="0.4"
+              />
+              <path
+                d="M230 355 l8 16"
+                stroke="#8b7d6f"
+                strokeWidth="3"
+                strokeLinecap="round"
+                opacity="0.4"
+              />
+            </g>
           </svg>
         </div>
       </div>
