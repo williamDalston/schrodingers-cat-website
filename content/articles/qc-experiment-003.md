@@ -2,7 +2,7 @@
 
 Imagine playing Russian roulette with a quantum gun. Every time you pull the trigger, quantum mechanics determines whether the gun fires. In the Many-Worlds interpretation, the universe branches: in one branch, you die; in another, you survive.
 
-From your perspective, you only experience branches where you survive. So if quantum immortality is real, you'll never actually experience death from quantum randomness—there's always a branch where you live.
+From your perspective, you only experience branches where you survive. So if quantum immortality is real, you'll never actually experience death from quantum randomness there's always a branch where you live.
 
 This is quantum immortality: the controversial idea that Many-Worlds guarantees your survival from quantum death. It's been tested (in thought experiments) and debated by physicists. But is it real? And what does it tell us about consciousness and Many-Worlds?
 
@@ -14,7 +14,7 @@ Quantum immortality requires:
 3. **You only experience survival**: You only experience branches where you survive
 4. **Quantum randomness**: Death depends on quantum randomness (not guaranteed)
 
-Under these conditions, quantum immortality suggests you'll never experience quantum death—you'll always find yourself in a branch where you survive.
+Under these conditions, quantum immortality suggests you'll never experience quantum death you'll always find yourself in a branch where you survive.
 
 ## The Thought Experiment
 
@@ -66,7 +66,7 @@ Even if you survive quantum death, you might survive in terrible conditions:
 - Aging indefinitely
 - Living in pain
 
-Quantum immortality doesn't guarantee good survival—just survival.
+Quantum immortality doesn't guarantee good survival just survival.
 
 ## The Consciousness Question
 
@@ -94,7 +94,7 @@ Quantum immortality faces several criticisms:
 
 ### It's Untestable
 
-You can't test quantum immortality without risking death. Thought experiments are all we have—and they might not reflect reality.
+You can't test quantum immortality without risking death. Thought experiments are all we have and they might not reflect reality.
 
 ### Many-Worlds Might Be Wrong
 
@@ -102,11 +102,11 @@ Quantum immortality assumes Many-Worlds is correct. If other interpretations are
 
 ### Death Isn't Quantum
 
-Most deaths aren't caused by quantum randomness. They're caused by aging, disease, accidents—classical processes. Quantum immortality wouldn't protect you from these.
+Most deaths aren't caused by quantum randomness. They're caused by aging, disease, accidents classical processes. Quantum immortality wouldn't protect you from these.
 
 ### The Decrepit Survival
 
-Even if you survive quantum death, you might survive in terrible conditions—injured, aging, suffering. Quantum immortality doesn't guarantee pleasant immortality.
+Even if you survive quantum death, you might survive in terrible conditions injured, aging, suffering. Quantum immortality doesn't guarantee pleasant immortality.
 
 ### Probability Problem
 
@@ -148,7 +148,7 @@ You can't test quantum immortality without risking actual death. No ethical revi
 
 ### Suicide Implications
 
-If quantum immortality is real, does it make suicide safer? This is dangerous thinking—quantum immortality doesn't protect you from classical death.
+If quantum immortality is real, does it make suicide safer? This is dangerous thinking quantum immortality doesn't protect you from classical death.
 
 ### Existential Implications
 
@@ -181,7 +181,7 @@ Even if quantum immortality works, you might survive in terrible conditions:
 
 ### Injured Survival
 
-You might survive quantum death but be severely injured—alive but suffering.
+You might survive quantum death but be severely injured alive but suffering.
 
 ### Aging Without Death
 
@@ -191,7 +191,7 @@ You might age indefinitely, growing older and weaker but never dying from quantu
 
 You might survive while everyone else dies, leaving you alone in a dead world.
 
-Quantum immortality doesn't guarantee pleasant immortality—just survival from quantum death.
+Quantum immortality doesn't guarantee pleasant immortality just survival from quantum death.
 
 ## Practical Implications
 
@@ -199,7 +199,7 @@ Even if quantum immortality is real, practical implications are limited:
 
 ### Most Deaths Aren't Quantum
 
-Most deaths come from aging, disease, accidents—classical processes. Quantum immortality wouldn't protect you from these.
+Most deaths come from aging, disease, accidents classical processes. Quantum immortality wouldn't protect you from these.
 
 ### Quantum Death Is Rare
 
@@ -211,7 +211,7 @@ You can't safely test quantum immortality, so you'll never know if it works for 
 
 ### It Doesn't Change Much
 
-Even if quantum immortality is real, it doesn't change how you should live your life—classical death is still coming.
+Even if quantum immortality is real, it doesn't change how you should live your life classical death is still coming.
 
 ## The Consciousness Connection
 
@@ -237,7 +237,7 @@ Quantum immortality remains a thought experiment:
 - Extremely unlikely in practice
 - Raises deep questions about consciousness and identity
 
-It's fascinating but not something you should test—or rely on.
+It's fascinating but not something you should test or rely on.
 
 ## Why This Matters
 
@@ -261,7 +261,7 @@ It has profound implications for how we think about death, survival, and meaning
 
 ## The Bottom Line
 
-Quantum immortality suggests that if Many-Worlds is correct, you might never experience death from quantum randomness—you'll always find yourself in a surviving branch.
+Quantum immortality suggests that if Many-Worlds is correct, you might never experience death from quantum randomness you'll always find yourself in a surviving branch.
 
 But this is:
 - Logically consistent but practically irrelevant (most deaths aren't quantum)
@@ -269,11 +269,11 @@ But this is:
 - Potentially unpleasant (decrepit survival)
 - Not something to rely on or test
 
-Quantum immortality is a fascinating thought experiment that reveals the strange implications of Many-Worlds. But it's not a practical guide to life—or death.
+Quantum immortality is a fascinating thought experiment that reveals the strange implications of Many-Worlds. But it's not a practical guide to life or death.
 
 The real question isn't whether quantum immortality works, but what it tells us about Many-Worlds, consciousness, and the relationship between quantum mechanics and experience.
 
-In a universe that branches with every quantum event, the question of survival becomes deeply strange—and quantum immortality is one of the strangest implications of all.
+In a universe that branches with every quantum event, the question of survival becomes deeply strange and quantum immortality is one of the strangest implications of all.
 
 ---
 

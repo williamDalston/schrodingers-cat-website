@@ -2,7 +2,7 @@
 
 Integrated Information Theory (IIT) proposes that consciousness equals integrated information, measured by Φ (phi). But what happens when we extend IIT into the quantum realm? What if quantum mechanics fundamentally changes how we calculate Φ and understand consciousness?
 
-This is the question explored by quantum IIT—a cutting-edge extension that replaces classical probabilities with quantum density matrices, potentially revealing consciousness at scales we never imagined.
+This is the question explored by quantum IIT a cutting-edge extension that replaces classical probabilities with quantum density matrices, potentially revealing consciousness at scales we never imagined.
 
 ## Classical IIT vs. Quantum IIT
 
@@ -14,7 +14,7 @@ Quantum IIT does something different: it uses quantum density matrices instead o
 - Quantum coherence as a source of consciousness
 - Whether quantum systems can have high Φ
 
-This isn't just a mathematical upgrade—it fundamentally changes what systems might be conscious and how consciousness emerges.
+This isn't just a mathematical upgrade it fundamentally changes what systems might be conscious and how consciousness emerges.
 
 ## Albantoni's Quantum IIT Framework
 
@@ -22,7 +22,7 @@ Recent work by researchers like Albantoni explores quantum IIT by replacing clas
 
 ### Density Matrices Replace Probabilities
 
-Instead of asking "what's the probability the system is in state X?", quantum IIT asks "what's the quantum state of the system?" Density matrices capture both classical uncertainty and quantum superposition—fundamentally different types of uncertainty.
+Instead of asking "what's the probability the system is in state X?", quantum IIT asks "what's the quantum state of the system?" Density matrices capture both classical uncertainty and quantum superposition fundamentally different types of uncertainty.
 
 ### Quantum Integration
 
@@ -34,11 +34,11 @@ If a system is in quantum superposition, its quantum IIT value might differ from
 
 ## Neuron vs. Microtubule Φ Max
 
-One fascinating question: what has higher Φ—neurons (classical) or microtubules (quantum)?
+One fascinating question: what has higher Φ neurons (classical) or microtubules (quantum)?
 
 ### Classical Neurons
 
-Neurons are large, complex systems with many connections. Classical IIT calculates high Φ for neural networks because neurons are highly integrated—they work together as a unified whole.
+Neurons are large, complex systems with many connections. Classical IIT calculates high Φ for neural networks because neurons are highly integrated they work together as a unified whole.
 
 ### Quantum Microtubules
 
@@ -59,7 +59,7 @@ A quantum system in superposition exists in multiple states simultaneously. This
 
 ### Quantum Entanglement = More Integration
 
-If quantum IIT measures entanglement as integration, then entangled quantum systems might have very high Φ—potentially higher than classical systems that aren't entangled.
+If quantum IIT measures entanglement as integration, then entangled quantum systems might have very high Φ potentially higher than classical systems that aren't entangled.
 
 ### Quantum Coherence = Unified Processing
 
@@ -74,7 +74,7 @@ Quantum IIT makes a radical prediction: if you put a high-Φ system into quantum
 3. Calculate Φ using quantum IIT
 4. Compare the values
 
-If quantum Φ is higher, it suggests quantum effects enhance consciousness. If it's lower or zero, it suggests quantum superposition prevents consciousness—supporting collapse theories.
+If quantum Φ is higher, it suggests quantum effects enhance consciousness. If it's lower or zero, it suggests quantum superposition prevents consciousness supporting collapse theories.
 
 ## Challenges and Questions
 
@@ -86,7 +86,7 @@ Extending Φ calculations to quantum mechanics is mathematically complex. Densit
 
 ### Decoherence Effects
 
-Quantum systems decohere quickly in warm environments. If consciousness requires quantum coherence, most quantum systems might lose consciousness almost instantly—raising questions about biological quantum consciousness.
+Quantum systems decohere quickly in warm environments. If consciousness requires quantum coherence, most quantum systems might lose consciousness almost instantly raising questions about biological quantum consciousness.
 
 ### Measurement Problem Returns
 
@@ -110,7 +110,7 @@ Quantum systems might have consciousness even if they're too small for classical
 
 ### Quantum Effects Are Necessary
 
-If quantum IIT shows higher Φ than classical IIT, it suggests quantum effects aren't just helpful for consciousness—they might be necessary for high levels of consciousness.
+If quantum IIT shows higher Φ than classical IIT, it suggests quantum effects aren't just helpful for consciousness they might be necessary for high levels of consciousness.
 
 ### Decoherence Destroys Consciousness
 
@@ -123,7 +123,7 @@ Albantoni's approach replaces classical probability distributions with quantum d
 - **Classical**: "System has probability p of being in state X"
 - **Quantum**: "System is in quantum superposition of states with amplitudes..."
 
-The difference isn't just mathematical—it fundamentally changes what integration means and how consciousness emerges.
+The difference isn't just mathematical it fundamentally changes what integration means and how consciousness emerges.
 
 ## Testing Quantum IIT
 
@@ -161,7 +161,7 @@ Quantum IIT is still developing. Key challenges:
 - Experimental tests need design
 - Relationship to classical IIT needs clarification
 
-But the basic idea—that quantum mechanics changes how we calculate and understand consciousness—is compelling and testable.
+But the basic idea that quantum mechanics changes how we calculate and understand consciousness is compelling and testable.
 
 ## Why This Matters
 
@@ -177,11 +177,11 @@ Unlike many consciousness theories, quantum IIT makes specific, mathematical pre
 
 ### Explains Quantum Consciousness
 
-If quantum effects enhance Φ, this explains why quantum theories of consciousness exist—quantum mechanics might genuinely increase consciousness.
+If quantum effects enhance Φ, this explains why quantum theories of consciousness exist quantum mechanics might genuinely increase consciousness.
 
 ### Opens New Possibilities
 
-If quantum IIT is correct, consciousness might exist in quantum systems we never considered—from quantum computers to fundamental particles.
+If quantum IIT is correct, consciousness might exist in quantum systems we never considered from quantum computers to fundamental particles.
 
 ## The Bottom Line
 
@@ -189,11 +189,11 @@ Quantum IIT extends Integrated Information Theory into quantum mechanics, replac
 
 Whether quantum IIT is correct remains to be seen. But it represents a fascinating synthesis of two major approaches to consciousness: IIT's mathematical framework and quantum mechanics' potential role in consciousness.
 
-If quantum IIT proves correct, it could revolutionize our understanding of what systems can be conscious—and reveal consciousness at scales we never imagined.
+If quantum IIT proves correct, it could revolutionize our understanding of what systems can be conscious and reveal consciousness at scales we never imagined.
 
 The key insight: replacing classical probabilities with density matrices isn't just a mathematical exercise. It fundamentally changes what consciousness might be and where it might exist.
 
-As we explore quantum IIT, we might discover that consciousness isn't limited to complex biological systems. It might emerge wherever quantum information is integrated—from microtubules to quantum computers to the quantum vacuum itself.
+As we explore quantum IIT, we might discover that consciousness isn't limited to complex biological systems. It might emerge wherever quantum information is integrated from microtubules to quantum computers to the quantum vacuum itself.
 
 ---
 

@@ -1,6 +1,6 @@
 # Integrated Information Theory: Math Formula for Consciousness (Φ)
 
-What if consciousness could be measured? What if there was a mathematical formula that could tell you how conscious something is—whether it's a human brain, a quantum computer, or even a simple system?
+What if consciousness could be measured? What if there was a mathematical formula that could tell you how conscious something is whether it's a human brain, a quantum computer, or even a simple system?
 
 This is the promise of Integrated Information Theory (IIT), developed by neuroscientist Giulio Tononi. IIT proposes that consciousness isn't just a mystery to be solved by philosophy alone. It's a measurable quantity, represented by the Greek letter Φ (phi). 
 
@@ -10,7 +10,7 @@ And here's where it gets really interesting: IIT might be testable using quantum
 
 ## The Core Principle
 
-IIT starts with a simple observation: consciousness has structure. When you see red, you experience a specific quality—not just "something," but *redness*. This structure, this integration of information, is what consciousness is.
+IIT starts with a simple observation: consciousness has structure. When you see red, you experience a specific quality not just "something," but *redness*. This structure, this integration of information, is what consciousness is.
 
 The theory proposes that consciousness = integrated information. The more a system's parts work together as a unified whole (rather than independently), the more conscious it is.
 
@@ -36,7 +36,7 @@ Here's where quantum mechanics enters the picture. IIT makes a specific, testabl
 
 **If you put a conscious system (high Φ) into a quantum superposition of two different Φ structures, the superposition should be unstable and collapse quickly.**
 
-Why? Because consciousness requires integration, and a system in superposition isn't integrated—it exists in multiple states simultaneously. The theory predicts that consciousness "bites back" and causes the superposition to collapse, making it impossible for a conscious system to exist in superposition.
+Why? Because consciousness requires integration, and a system in superposition isn't integrated it exists in multiple states simultaneously. The theory predicts that consciousness "bites back" and causes the superposition to collapse, making it impossible for a conscious system to exist in superposition.
 
 This is a testable prediction! Unlike most consciousness theories, IIT makes falsifiable claims that could be tested with quantum computers or other quantum systems.
 
@@ -47,11 +47,11 @@ Some researchers have extended IIT to explicitly incorporate quantum mechanics. 
 - Quantum superpositions of conscious states are impossible
 - Quantum entanglement might be necessary for high Φ
 
-This creates a bridge between quantum mechanics and consciousness that could be tested experimentally. If a quantum computer reaches a certain level of integration (high Φ), its quantum superpositions should collapse—deviating from standard quantum mechanics.
+This creates a bridge between quantum mechanics and consciousness that could be tested experimentally. If a quantum computer reaches a certain level of integration (high Φ), its quantum superpositions should collapse deviating from standard quantum mechanics.
 
 ## Degrees of Consciousness
 
-One of IIT's most striking claims is that consciousness comes in degrees. It's not binary—conscious or not. Everything has some amount of consciousness, from zero (a rock) to maximum (presumably a highly integrated human brain).
+One of IIT's most striking claims is that consciousness comes in degrees. It's not binary conscious or not. Everything has some amount of consciousness, from zero (a rock) to maximum (presumably a highly integrated human brain).
 
 According to IIT:
 - **Simple systems** (like a photodiode) might have tiny amounts of consciousness
@@ -67,7 +67,7 @@ In principle, you can calculate Φ for any system:
 1. Determine all the possible states the system can be in
 2. Calculate how much information the system has about its own state
 3. Measure how integrated this information is (how much it depends on the whole system working together)
-4. The result is Φ—the amount of consciousness
+4. The result is Φ the amount of consciousness
 
 In practice, calculating Φ is computationally intractable for complex systems like human brains. But it's possible for simpler systems, and researchers are developing better methods for approximating Φ in complex cases.
 
@@ -88,7 +88,7 @@ IIT faces several criticisms:
 
 ### The Hard Problem Remains
 
-Critics argue that IIT doesn't solve the hard problem of consciousness—why information processing feels like anything at all. Even if Φ measures integration, why should integrated information be conscious?
+Critics argue that IIT doesn't solve the hard problem of consciousness why information processing feels like anything at all. Even if Φ measures integration, why should integrated information be conscious?
 
 ### Computational Intractability
 
@@ -100,7 +100,7 @@ IIT suggests that simple systems might have some consciousness, which seems coun
 
 ### The Measurement Problem
 
-IIT's quantum prediction assumes wave function collapse. But if Many-Worlds is correct, there is no collapse—superpositions never end. This would invalidate IIT's quantum test.
+IIT's quantum prediction assumes wave function collapse. But if Many-Worlds is correct, there is no collapse superpositions never end. This would invalidate IIT's quantum test.
 
 ## Why IIT Matters
 
@@ -134,7 +134,7 @@ The most exciting aspect of IIT is its testable connection to quantum mechanics.
 - **Quantum biology**: Do biological systems with high Φ show quantum effects that differ from standard quantum mechanics?
 - **Consciousness-detection devices**: Could we build devices that detect consciousness by looking for quantum deviations?
 
-This isn't just theory—researchers are already designing experiments to test IIT's quantum predictions.
+This isn't just theory researchers are already designing experiments to test IIT's quantum predictions.
 
 ## The Future of Consciousness Research
 
@@ -156,7 +156,7 @@ Whether IIT is correct remains to be seen. But by making consciousness measurabl
 
 The quantum connection is particularly exciting: if consciousness prevents quantum superposition, we might finally have a way to test consciousness theories experimentally. This could revolutionize our understanding of mind, matter, and the relationship between them.
 
-As philosopher Kelvin McQueen notes, IIT offers a way to "put system in superposition of two Φ structures → collapse." This testable prediction could determine whether consciousness is truly integrated information—or something else entirely.
+As philosopher Kelvin McQueen notes, IIT offers a way to "put system in superposition of two Φ structures → collapse." This testable prediction could determine whether consciousness is truly integrated information or something else entirely.
 
 ---
 

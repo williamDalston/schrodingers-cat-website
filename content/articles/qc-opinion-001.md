@@ -22,7 +22,7 @@ So here's a ranking of the top 5 quantum consciousness theories. We'll evaluate 
 - Difficult to test experimentally
 - Most physicists reject it
 
-**Testability**: Low—hard to compare conscious vs. unconscious "measurements"
+**Testability**: Low hard to compare conscious vs. unconscious "measurements"
 
 **The Bullet**: You have to accept that consciousness is a fundamental force in physics, which most physicists find unpalatable.
 
@@ -45,9 +45,9 @@ So here's a ranking of the top 5 quantum consciousness theories. We'll evaluate 
 - No direct evidence for quantum computation in microtubules
 - The hard problem remains: why do quantum computations feel like anything?
 
-**Testability**: Medium—could test decoherence times in microtubules and quantum effects in biological systems
+**Testability**: Medium could test decoherence times in microtubules and quantum effects in biological systems
 
-**The Bullet**: You have to accept that quantum coherence can survive in biological systems for milliseconds—much longer than typical decoherence times.
+**The Bullet**: You have to accept that quantum coherence can survive in biological systems for milliseconds much longer than typical decoherence times.
 
 **Verdict**: Bold and creative, but faces serious decoherence challenges. The anesthesia connection is intriguing, but direct evidence is lacking.
 
@@ -69,7 +69,7 @@ So here's a ranking of the top 5 quantum consciousness theories. We'll evaluate 
 - Personal identity: which copy of you is the "real" you?
 - Difficult to test (branches don't interact)
 
-**Testability**: Low—can't directly observe other branches, though it makes predictions about quantum mechanics working exactly as written
+**Testability**: Low can't directly observe other branches, though it makes predictions about quantum mechanics working exactly as written
 
 **The Bullet**: You have to accept that infinite parallel universes exist and that you're just one copy among countless others.
 
@@ -94,7 +94,7 @@ So here's a ranking of the top 5 quantum consciousness theories. We'll evaluate 
 - The quantum extension is newer and less developed
 - Still assumes wave function collapse exists
 
-**Testability**: High—could test whether complex quantum systems show unstable superpositions
+**Testability**: High could test whether complex quantum systems show unstable superpositions
 
 **The Bullet**: You have to accept that consciousness comes in degrees and that simple systems might have some consciousness.
 
@@ -118,7 +118,7 @@ So here's a ranking of the top 5 quantum consciousness theories. We'll evaluate 
 - Still faces IIT computational challenges
 - Combining two theories multiplies their problems
 
-**Testability**: Medium—depends on testing both Many-Worlds and IIT components
+**Testability**: Medium depends on testing both Many-Worlds and IIT components
 
 **The Bullet**: You have to accept both infinite universes and degrees of consciousness.
 

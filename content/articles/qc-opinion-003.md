@@ -2,7 +2,7 @@
 
 What's next for quantum consciousness research? Where is the field heading? What breakthroughs might we see in 2025 and beyond?
 
-Based on insights from philosopher Kelvin McQueen and current research trends, here are predictions for where quantum consciousness research is heading—from experimental tests to theoretical breakthroughs to philosophical debates.
+Based on insights from philosopher Kelvin McQueen and current research trends, here are predictions for where quantum consciousness research is heading from experimental tests to theoretical breakthroughs to philosophical debates.
 
 ## Experimental Breakthroughs
 
@@ -267,7 +267,7 @@ They allow us to track whether the field is progressing as expected.
 
 Whether these predictions come true remains to be seen. But the field is advancing rapidly, and 2025 could be a breakthrough year for quantum consciousness research.
 
-The question isn't whether progress will happen—it's how fast, and in which directions. The future of quantum consciousness research is being written now, and 2025 will be a crucial chapter.
+The question isn't whether progress will happen it's how fast, and in which directions. The future of quantum consciousness research is being written now, and 2025 will be a crucial chapter.
 
 Stay tuned. The quantum mind mystery is far from solved, but we're getting closer.
 

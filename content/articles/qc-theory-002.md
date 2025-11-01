@@ -6,11 +6,11 @@ In one branch, you see a quantum particle spin up. In another branch, you see it
 
 This is the Many-Worlds Interpretation (MWI) of quantum mechanics, proposed by physicist Hugh Everett in 1957. It's elegant. It's mind-bending. And here's what makes it remarkable: instead of wave functions collapsing when measured, they never collapse. The universe simply branches into parallel realities.
 
-Oh, and according to some surveys? About 50% of realist physicists favor it. It's not fringe science—it's mainstream.
+Oh, and according to some surveys? About 50% of realist physicists favor it. It's not fringe science it's mainstream.
 
 ## The Core Idea
 
-In the Copenhagen interpretation, when you measure a quantum particle in a superposition, the wave function collapses into a single state. The Many-Worlds interpretation eliminates collapse entirely. Instead, all possible outcomes happen—each in a separate, parallel universe.
+In the Copenhagen interpretation, when you measure a quantum particle in a superposition, the wave function collapses into a single state. The Many-Worlds interpretation eliminates collapse entirely. Instead, all possible outcomes happen each in a separate, parallel universe.
 
 If Schrödinger's cat is in a superposition of alive and dead, then:
 - In one universe, you open the box and find a living cat
@@ -47,7 +47,7 @@ Several approaches try to solve the probability problem:
 
 ### Self-Locating Uncertainty
 
-When the universe branches, you don't know which branch you'll end up in. This uncertainty—not about what happens, but about which branch contains "you"—might give rise to probabilities. You could be in any branch, so your expectations should match quantum probabilities.
+When the universe branches, you don't know which branch you'll end up in. This uncertainty not about what happens, but about which branch contains "you" might give rise to probabilities. You could be in any branch, so your expectations should match quantum probabilities.
 
 ### Measure Theory
 
@@ -65,18 +65,18 @@ Many-Worlds leads to a strange consequence called "quantum immortality." Suppose
 - In one branch, you die
 - In another branch, you survive
 
-From your perspective, you only experience branches where you survive. So if quantum immortality is true, you'll never actually experience death from quantum randomness—there's always a branch where you survive.
+From your perspective, you only experience branches where you survive. So if quantum immortality is true, you'll never actually experience death from quantum randomness there's always a branch where you survive.
 
 This is, of course, controversial. Most physicists think quantum immortality doesn't work because:
 - Death from quantum events is incredibly unlikely in practice
 - You'll eventually die from non-quantum causes (aging, accidents, etc.)
-- The "you" that survives is just one copy—the others die
+- The "you" that survives is just one copy the others die
 
 But it illustrates how counterintuitive Many-Worlds can be when applied to personal experience.
 
 ## Evidence and Tests
 
-Is Many-Worlds testable? In one sense, no—the branches don't interact, so you can't directly observe other branches. But the theory makes predictions that differ from other interpretations:
+Is Many-Worlds testable? In one sense, no the branches don't interact, so you can't directly observe other branches. But the theory makes predictions that differ from other interpretations:
 
 - **Decoherence**: Many-Worlds relies heavily on decoherence to explain why branches don't interfere with each other. This is testable and aligns with experiments.
 - **Quantum computing**: If Many-Worlds is correct, quantum computers are literally computing across parallel universes. This is consistent with how quantum computers work.
@@ -94,7 +94,7 @@ As discussed, recovering quantum probabilities is difficult. If all branches are
 
 ### Ontological Proliferation
 
-Many-Worlds requires an infinite number of universes, all equally real. Critics argue this is ontologically extravagant—why posit infinite universes when one might suffice?
+Many-Worlds requires an infinite number of universes, all equally real. Critics argue this is ontologically extravagant why posit infinite universes when one might suffice?
 
 ### No Testability
 
@@ -110,11 +110,11 @@ Many-Worlds is more than just a quantum interpretation. It suggests:
 
 ### Reality is Vast
 
-If Many-Worlds is correct, reality is unimaginably vast. Every possible outcome of every quantum event exists somewhere. Every decision you could have made, every event that could have happened—all exist in parallel universes.
+If Many-Worlds is correct, reality is unimaginably vast. Every possible outcome of every quantum event exists somewhere. Every decision you could have made, every event that could have happened all exist in parallel universes.
 
 ### Determinism Returns
 
-At the global level, Many-Worlds is deterministic. The wave function evolves deterministically according to the Schrödinger equation. Randomness is just your perspective—you don't know which branch you're in.
+At the global level, Many-Worlds is deterministic. The wave function evolves deterministically according to the Schrödinger equation. Randomness is just your perspective you don't know which branch you're in.
 
 ### No Special Role for Consciousness
 
@@ -133,7 +133,7 @@ Many-Worlds raises profound questions:
 - **Meaning**: If every possible outcome happens, does anything matter? Is your life meaningful, or just one branch among infinite others?
 - **Morality**: If all possible actions happen, is there any point to moral choices?
 
-These aren't just philosophical curiosities—they're real questions that Many-Worlds forces us to confront.
+These aren't just philosophical curiosities they're real questions that Many-Worlds forces us to confront.
 
 ## The Bottom Line
 
