@@ -22,17 +22,14 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="glass sticky top-0 z-50 border-b border-white/20 depth-shadow-1 backdrop-blur-xl" aria-label="Site navigation">
+    <nav className="sticky top-0 z-50 border-b border-gray-200/50 backdrop-blur-xl bg-white/95 shadow-sm" aria-label="Site navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative perspective-container">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-accent-600 rounded-xl blur-md opacity-75 group-hover:opacity-100 transition-opacity quantum-glow"></div>
-              <div className="relative w-10 h-10 bg-gradient-to-br from-primary-600 to-accent-600 rounded-xl flex items-center justify-center shadow-lg btn-3d quantum-layer">
-                <span className="text-white font-bold text-lg text-3d">SC</span>
-              </div>
+            <div className="relative w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+              <span className="text-white font-bold text-lg">SC</span>
             </div>
-            <span className="font-bold text-2xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent group-hover:from-primary-600 group-hover:to-accent-600 transition-all text-3d">
+            <span className="font-bold text-2xl text-gray-900 group-hover:text-primary-600 transition-colors duration-300">
               Schrödinger&apos;s Cat
             </span>
           </Link>
