@@ -1,27 +1,24 @@
 'use client'
 
 import Script from 'next/script'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export default function Analytics() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     if (!GA_MEASUREMENT_ID || typeof window === 'undefined') return
 
-    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '')
-    
-    // Track page views
+    // Track page views using current location (includes query params)
     if (typeof window.gtag !== 'undefined') {
       window.gtag('config', GA_MEASUREMENT_ID, {
-        page_path: url,
+        page_path: window.location.pathname + window.location.search,
       })
     }
-  }, [pathname, searchParams])
+  }, [pathname])
 
   if (!GA_MEASUREMENT_ID) {
     return null

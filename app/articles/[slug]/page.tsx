@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import ReactMarkdown from 'react-markdown'
@@ -134,7 +135,9 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary-50/30">
-      <ArticleTracker articleId={article.id} />
+      <Suspense fallback={null}>
+        <ArticleTracker articleId={article.id} />
+      </Suspense>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -144,41 +147,41 @@ export default function ArticlePage({ params }: ArticlePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="max-w-4xl mx-auto container-spacing section-spacing">
         <Link
           href="/articles"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8 group"
+          className="link-primary inline-flex items-center mb-8 group focus-ring rounded-lg px-2 py-1 -ml-2"
         >
           <ArrowLeftIcon className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Articles
         </Link>
 
         {/* Header */}
-        <div className="mb-8">
+        <header className="mb-12">
           <ArticleMeta article={article} />
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
             {article.title}
           </h1>
 
           {article.angle && (
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 font-light">
               {article.angle}
             </p>
           )}
 
           {/* Share Buttons */}
-          <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
+          <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-gray-200">
             <p className="text-sm font-semibold text-gray-500">Share this article:</p>
             <ShareButtons 
               title={article.title}
               description={article.angle}
             />
           </div>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <article className="prose prose-lg md:prose-xl max-w-none bg-white rounded-2xl border border-gray-200 p-8 md:p-10 mb-8">
+        <article className="prose prose-lg md:prose-xl max-w-none card p-8 md:p-10 mb-8 shadow-sm">
           {/* Article Status Banner for Drafts */}
           {article.status === 'draft' && (
             <div className="mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
@@ -190,8 +193,56 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Article Content */}
           {articleContent ? (
-            <div className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <div className="prose prose-lg md:prose-xl max-w-none 
+              prose-headings:font-bold prose-headings:text-gray-900 prose-headings:scroll-mt-24 prose-headings:tracking-tight
+              prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:leading-tight
+              prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-12 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-3 prose-h2:pt-2 prose-h2:leading-tight
+              prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-8 prose-h3:leading-snug
+              prose-h4:text-xl prose-h4:mb-2 prose-h4:mt-6 prose-h4:leading-snug
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
+              prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-a:transition-all prose-a:rounded focus-ring
+              prose-strong:text-gray-900 prose-strong:font-bold
+              prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:my-3 prose-li:leading-relaxed
+              prose-blockquote:border-l-4 prose-blockquote:border-primary-500 prose-blockquote:bg-primary-50/50 prose-blockquote:pl-6 prose-blockquote:py-4 prose-blockquote:my-8 prose-blockquote:italic prose-blockquote:rounded-r-lg prose-blockquote:shadow-sm
+              prose-code:text-primary-700 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-[''] prose-code:after:content-['']
+              prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-xl prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:shadow-lg prose-pre:border prose-pre:border-gray-800
+              prose-img:rounded-xl prose-img:shadow-xl prose-img:my-10 prose-img:w-full prose-img:h-auto
+              prose-hr:border-gray-300 prose-hr:my-10
+              prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-table:shadow-sm prose-table:rounded-lg prose-table:overflow-hidden
+              prose-th:border prose-th:border-gray-300 prose-th:bg-gray-50 prose-th:p-4 prose-th:text-left prose-th:font-bold prose-th:text-gray-900
+              prose-td:border prose-td:border-gray-300 prose-td:p-4 prose-td:text-gray-700">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  img: ({ node, ...props }) => (
+                    <img 
+                      {...props} 
+                      className="rounded-xl shadow-lg my-8 w-full"
+                      loading="lazy"
+                      alt={props.alt || 'Article image'}
+                    />
+                  ),
+                  a: ({ node, ...props }) => (
+                    <a 
+                      {...props} 
+                      className="text-primary-600 no-underline hover:underline font-medium"
+                      target={props.href?.startsWith('http') ? '_blank' : undefined}
+                      rel={props.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    />
+                  ),
+                  code: ({ node, inline, className, children, ...props }: any) => {
+                    return !inline ? (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    ) : (
+                      <code className="text-primary-700 bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono" {...props}>
+                        {children}
+                      </code>
+                    )
+                  },
+                }}
+              >
                 {articleContent}
               </ReactMarkdown>
             </div>
